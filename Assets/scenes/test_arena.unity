@@ -133,9 +133,9 @@ GameObject:
   - component: {fileID: 772660910}
   - component: {fileID: 772660909}
   - component: {fileID: 772660908}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 772660906}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.33, y: -2.03, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1486,7 +1486,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!212 &2007352952
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1551,7 +1551,7 @@ Transform:
   m_GameObject: {fileID: 2007352949}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.85, y: 2.18, z: 1.3695526}
+  m_LocalPosition: {x: -6.17, y: -2.22, z: 1.3695526}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1615,7 +1615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2425afd91cdf9244cbdfed30f23b5ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

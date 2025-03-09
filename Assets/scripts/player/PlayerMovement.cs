@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     private bool direction;
     private bool move;
-    private bool ascending;
     private bool jump;
     private Vector3 originalScale;
     [SerializeField] private float speed = 5.0f;
@@ -17,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sr;
     private BoxCollider2D bc;
-    private int lastAttack;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
         originalScale = transform.localScale;
         isGrounded = false;
         move = false;
-        ascending = false;
     }
 
     // Update is called once per frame
@@ -59,12 +56,9 @@ public class PlayerMovement : MonoBehaviour
             jump = false;
         }
 
-        ascending = rb.linearVelocity.y > 0.01f;
-
     }
 
     private void HandleInput () {
-        // Handle Movement
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.Z)) {
             move = true;
             direction = false;
@@ -76,31 +70,16 @@ public class PlayerMovement : MonoBehaviour
             move = false;
         }
         jump = Input.GetKey(KeyCode.Space) && isGrounded;
-
-
-        // Handle Attacks
-        if (Input.GetKey(KeyCode.F)) {
-            Attack();
-        }
-    }
-
-    private void Attack () {
-        if (Time.time - lastAttack > 0.1f) {
-            lastAttack = (int) Time.time;
-        }
     }
 
     private void HandleAnimation () {
         anim.SetBool("IsRunning", move);
-        anim.SetBool("IsJumping", ascending && !isGrounded);
-        anim.SetBool("IsFalling", !ascending && !isGrounded);
+        anim.SetBool("IsJumping", !isGrounded);
         anim.SetBool("IsGrounded", isGrounded);
-
     }
     private void UpdateDirection () {
         transform.localScale = new Vector3(direction ? originalScale.x : -originalScale.x, originalScale.y, originalScale.z);
     }
-
 
     private void Jump () {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
