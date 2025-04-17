@@ -1,0 +1,89 @@
+#desert#
+10,22,10,25,85
+@terrain
+terrain,(,Layer_1
+tile,Assets/sprites/tiles/TileAssets/Nature/Sand1.asset,0,1000
+topTile,Assets/sprites/tiles/TileAssets/Nature/Sand6.asset,0,1000
+bottomDoubleEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand1.asset,0,1000
+doubleEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand15.asset,0,1000
+topDoubleEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand13.asset,0,1000
+bottomLeftEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand1.asset,0,1000
+leftEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand9.asset,0,1000
+topLeftEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand5.asset,0,1000
+bottomRightEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand1.asset,0,1000
+rightEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand7.asset,0,1000
+topRightEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand2.asset,0,1000
+scaleTile,,0,1000
+)
+tree,(,Layer_3
+,,0,1000
+)
+grass,(,Layer_2
+,Assets/sprites/tiles/TileAssets/Nature/Cactus2.asset,0,5
+,Assets/sprites/tiles/TileAssets/Nature/Cactus4.asset,0,5
+)
+decors,(,Layer_1
+tauneau,Assets/sprites/tiles/VillageStuff/TX Village Props_21.asset,0,1000
+)
+structures,(,Layer_4
+tree 1,Assets/sprites/tiles/NatureTileMap/Tree_5_1.asset,-7,100
+tree 2,Assets/sprites/tiles/NatureTileMap/Tree_22_2.asset,-7,100
+)
+@endterrain
+@parallax
+,Assets/sprites/backgrounds/deep_woods/BACKGROUND.png,0
+,Assets/sprites/backgrounds/deep_woods/BUSH - BACKGROUND.png,0.0001
+,Assets/sprites/backgrounds/deep_woods/VINES - Second.png,-0.0002
+,Assets/sprites/backgrounds/deep_woods/WOODS - First.png,0.0003
+,Assets/sprites/backgrounds/deep_woods/WOODS - Fourth.png,-0.0004
+,Assets/sprites/backgrounds/deep_woods/WOODS - Second.png,0.0005
+,Assets/sprites/backgrounds/deep_woods/WOODS - Third.png,0.0006
+@endparallax
+#foret#
+10,22,32,76,41
+@terrain
+terrain,(,Layer_1
+tile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_71.asset,0,1000
+topTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_81.asset,0,1000
+bottomDoubleEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_80.asset,0,1000
+doubleEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_77.asset,0,1000
+topDoubleEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_66.asset,0,1000
+bottomLeftEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_43.asset,0,1000
+leftEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_29.asset,0,1000
+topLeftEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_104.asset,0,1000
+bottomRightEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_122.asset,0,1000
+rightEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_75.asset,0,1000
+topRightEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_150.asset,0,1000
+scaleTile,,0,1000
+)
+tree,(,Layer_3
+,Assets/sprites/tiles/NatureTileMap/64_17.asset,0,1000
+,Assets/sprites/tiles/NatureTileMap/64_16.asset,0,1000
+)
+grass,(,Layer_2
+,Assets/sprites/tiles/NatureTileMap/TX Village Props_238.asset,0,5
+,Assets/sprites/tiles/NatureTileMap/TX Village Props_239.asset,0,5
+,Assets/sprites/tiles/NatureTileMap/TX Village Props_252.asset,0,5
+,Assets/sprites/tiles/NatureTileMap/TX Village Props_253.asset,0,5
+,Assets/sprites/tiles/NatureTileMap/TX Village Props_254.asset,0,5
+)
+decors,(,Layer_1
+tauneau,Assets/sprites/tiles/VillageStuff/TX Village Props_21.asset,0,1000
+tauneau,Assets/sprites/tiles/VillageStuff/TX Village Props_7.asset,0,1000
+tauneau,Assets/sprites/tiles/VillageStuff/TX Village Props_23.asset,0,1000
+tauneau,Assets/sprites/tiles/VillageStuff/TX Village Props_22.asset,0,1000
+)
+structures,(,Layer_4
+tree 1,Assets/sprites/tiles/NatureTileMap/Tree_5_1.asset,-7,100
+tree 2,Assets/sprites/tiles/NatureTileMap/Tree_22_2.asset,-7,100
+)
+@endterrain
+@parallax
+,Assets/sprites/backgrounds/deep_woods/BACKGROUND.png,0
+,Assets/sprites/backgrounds/deep_woods/BUSH - BACKGROUND.png,0.0001
+,Assets/sprites/backgrounds/deep_woods/VINES - Second.png,-0.0002
+,Assets/sprites/backgrounds/deep_woods/WOODS - First.png,0.0003
+,Assets/sprites/backgrounds/deep_woods/WOODS - Fourth.png,-0.0004
+,Assets/sprites/backgrounds/deep_woods/WOODS - Second.png,0.0005
+,Assets/sprites/backgrounds/deep_woods/WOODS - Third.png,0.0006
+@endparallax
