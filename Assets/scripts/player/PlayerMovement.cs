@@ -1,24 +1,35 @@
-using System;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
     private bool direction;
     private bool move;
     private bool jump;
-    private Vector3 originalScale;
-    [SerializeField] private float speed = 5.0f;
-    private float jumpForce = 5.0f;
-    private bool isGrounded;
+    private bool attack;
+    private bool ascending;
+    private bool dead;
+    private bool hit;
+    private float lastHitTime = 0f; // Time of the last hit taken
+    [SerializeField] private float hitCooldown = 2f; // Cooldown time before the player can be hit again
+    private bool dash;
+    private float dashStartTime; // Time when the dash started
+    private float dashTime = 0.2f; // Duration of the dash
+    private float dashCooldown = 1.0f; // Cooldown time before the player can dash again
+    [SerializeField] private float speed = 7.0f;
+    [SerializeField] private float jumpForce = 20.0f;
+    [SerializeField]  private float health = 100.0f; // Player's health
+    [SerializeField] private float maxHealth = 100.0f; // Player's maximum health
+    [SerializeField] private GroundCheck groundCheck; // Reference to the GroundCheck script
+    [SerializeField] private PlayerAttack playerAttack;
+    [SerializeField] private PlayerChangeDirection playerDirection; // Reference to the PlayerChangeDirection script
+    private bool isGrounded; // Check if the player is grounded
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sr;
     private BoxCollider2D bc;
+    private Camera cam;
+    private Vector2 mousePos;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         direction = true;
@@ -27,75 +38,170 @@ public class PlayerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         bc = GetComponent<BoxCollider2D>();
 
-        originalScale = transform.localScale;
         isGrounded = false;
         move = false;
+
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        isGrounded = IsGrounded();
+        isGrounded = groundCheck.IsGrounded(); // Check if the player is grounded
 
         HandleInput();
-        PlayerMove();
+        PlayerUpdate();
+
+        ascending = rb.linearVelocity.y > 0.1f;
+
         HandleAnimation();
 
-        UpdateDirection();
+        if(move) playerDirection.ChangeDirection(direction); // Change the player's direction based on input
+        
+
+        jump = false;
+
     }
 
-    private void PlayerMove () {
+    private void PlayerUpdate()
+    {   
+        if (dead) return; // Ignore if dead
+
+        // Dashing logic
+        if (dash && Time.time - dashStartTime < dashTime) // Check if dash is available
+        {
+            // Disable gravity
+            rb.gravityScale = 0f; // Disable gravity
+
+            Vector2 dashDirection = new Vector2( mousePos.x - rb.position.x, mousePos.y - rb.position.y ); // Dash in the initial direction
+            rb.linearVelocity = 4 * speed * dashDirection.normalized; // Dash in the initial direction
+            
+
+            dash = false; // Reset dash state
+        } 
+        else
+        {
+            rb.gravityScale = 4f; // Enable gravity
+        }
+
         if (move)
         {
-            rb.linearVelocity = new Vector2((direction ? 1 : -1) * speed, rb.linearVelocity.y);
+            if (isGrounded)
+            {
+                rb.linearVelocity = new Vector2((direction ? 1 : -1) * speed, rb.linearVelocity.y);
+            }
+            else
+            {
+                rb.linearVelocity = new Vector2((direction ? 0.009f : -0.009f) * speed + rb.linearVelocityX, rb.linearVelocity.y);
+            }
+        }
+
+        if (hit && Time.time - lastHitTime > hitCooldown)
+        {
+            hit = false; // Reset hit state after cooldown
         }
 
         if (jump)
         {
             Jump();
-            jump = false;
         }
-
     }
 
-    private void HandleInput () {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.Z)) {
+    private void HandleInput()
+    {   
+        Vector3 mousePos3d = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = new Vector2(mousePos3d.x, mousePos3d.y);
+
+
+        if (dead || dash) return; // Ignore if dead or dashing
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.Z))
+        {
             move = true;
             direction = false;
         }
-        else if (Input.GetKey(KeyCode.D)) {
+        else if (Input.GetKey(KeyCode.D))
+        {
             move = true;
             direction = true;
-        } else {
+        }
+        else
+        {
             move = false;
         }
+
+        if (Input.GetKey(KeyCode.LeftShift)){
+            if (Time.time - dashStartTime > dashCooldown) // Check if dash is available
+            {
+                dashStartTime = Time.time; // Reset dash start time
+                dash = true; // Set dash state
+            }
+        }
+
         jump = Input.GetKey(KeyCode.Space) && isGrounded;
+        attack = Input.GetMouseButton(0); // Click to attack
     }
 
-    private void HandleAnimation () {
-        anim.SetBool("IsRunning", move);
-        anim.SetBool("IsJumping", !isGrounded);
-        anim.SetBool("IsGrounded", isGrounded);
-    }
-    private void UpdateDirection () {
-        transform.localScale = new Vector3(direction ? originalScale.x : -originalScale.x, originalScale.y, originalScale.z);
+    private void HandleAnimation()
+    {
+        if (jump) {
+            anim.SetTrigger("Jump");
+        }
+        anim.SetBool("Running", move);
+        anim.SetBool("Ascending", ascending);
+        
+        anim.SetBool("Grounded", isGrounded);
+        if (attack) {
+            playerAttack.Attack(mousePos); // Call the attack method from PlayerAttack script
+        }
+        
     }
 
-    private void Jump () {
+    private void Jump()
+    {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
+
+
+    public void TakeDamage(float damage)
+    {   
+        if (dead || hit) return; // Ignore if already dead or hit
+        
+        health -= damage;
+        if (health <= 0)
         {
-            isGrounded = true;
+            Die();
+        } else {
+            // Play hurt animation
+            hit = true;
+            lastHitTime = Time.time; // Update last hit time
+            anim.SetTrigger("Hit");
         }
     }
 
-    private bool IsGrounded () {
-        RaycastHit2D hit = Physics2D.BoxCast(bc.bounds.center, bc.bounds.size, 0f, Vector2.down, 0.1f, LayerMask.GetMask("Ground"));
-        return hit.collider != null;
+    private void Die()
+    {
+        anim.SetTrigger("Dead");
+        dead = true;
     }
-
+    
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+    public float GetHealth()
+    {
+        return health;
+    }
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+    public Vector2 GetVelocity()
+    {
+        return rb.linearVelocity;
+    }
+    public bool IsDashing()
+    {
+        return dash;
+    }
 }
