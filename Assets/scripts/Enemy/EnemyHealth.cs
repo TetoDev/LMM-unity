@@ -6,11 +6,15 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float maxHealth = 100.0f; // Enemy's maximum health
     [SerializeField] private float stunTime = 0.5f; // Time the enemy is stunned after being hit
     [SerializeField] private float destroyTime = 2.0f; // Time before the enemy is destroyed after death
+    [SerializeField] private int maxHitsUntilUnstun = 100; // Maximum hits before the enemy unstuns
     private Animator anim;
     private Rigidbody2D rb; // Reference to the enemy's Rigidbody2D component
     private Collider2D bodyCollider; // Reference to the enemy's collider
     private float lastHitTime = 0f; // Time of the last hit taken
     private bool dead;
+    private int hitCount = 0; // Count of hits taken
+    private float lastHitReductionTime = 0f; // Time of the last hit reduction
+    private bool stunnable; // Flag to check if the enemy can be stunned
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +29,7 @@ public class EnemyHealth : MonoBehaviour
         }
 
         dead = false; // Initialize dead state to false
+        stunnable = true; // Initialize stunnable state to true
     }
 
     // Update is called once per frame
@@ -32,6 +37,16 @@ public class EnemyHealth : MonoBehaviour
     {
         if (Time.time - lastHitTime < stunTime) {
             anim.SetBool("hit", false); // Reset the hit animation if within cooldown period
+        }
+
+        if (Time.time - lastHitReductionTime > 1f) {
+            hitCount = hitCount > 0 ? hitCount -1 : 0 ; // Reset the hit count after 1 second
+            lastHitReductionTime = Time.time; // Update the last hit reduction time
+        }
+
+        stunnable = hitCount < maxHitsUntilUnstun; // Set stunable to true if no hits have been taken   
+        if (!stunnable) {
+            anim.SetBool("hit",false);
         }
     }
 
@@ -48,14 +63,18 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (dead) return; // Ignore if already dead
-        if (Time.time - lastHitTime < 0.3f) return; // Ignore if hit too soon after the last hit
 
+        
+        if (Time.time - lastHitTime < 0.3f) return; // Ignore if hit too soon after the last hit
+        hitCount++; // Increment the hit count
         health -= damage; // Subtract the damage from the enemy's health
         if (health < 0.0f) {
             Die(); // Call the Die method
             health = 0.0f; // Ensure health does not go below zero
         }
-        anim.SetBool("hit", true); // Trigger the hit animation
+        if (stunnable){
+            anim.SetBool("hit", true); // Trigger the hit animation
+        }
         lastHitTime = Time.time; // Update the last hit time
     }
 
@@ -72,6 +91,6 @@ public class EnemyHealth : MonoBehaviour
         return dead;
     }
     public bool IsStunned() {
-        return Time.time - lastHitTime < stunTime; // Check if the enemy is stunned based on the last hit time
+        return Time.time - lastHitTime < stunTime && stunnable; // Check if the enemy is stunned based on the last hit time
     }
 }

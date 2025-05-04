@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c77ff12856202143b41939aa46b9a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1.1
+  attackRange: 1.5
   playerLayers:
     serializedVersion: 2
     m_Bits: 0
