@@ -6,6 +6,7 @@ public class EnemyDirection : MonoBehaviour
     private bool direction; // true for right, false for left
     private Vector3 originalScale; // Original scale of the enemy
     [SerializeField] float maxDistance = 30f; // Distance to check for the player
+    [SerializeField] private bool inverted = false;
     [SerializeField] EnemyFindPlayer findPlayer; // Reference to the EnemyFindPlayer script
     [SerializeField] EnemyHealth enemyHealth; // Reference to the EnemyHealth script
 
@@ -24,11 +25,11 @@ public class EnemyDirection : MonoBehaviour
         if (findPlayer.playerPos.x > transform.position.x && 
             findPlayer.distance < maxDistance)
         {
-            direction = true; // Player is to the right of the enemy
+            direction = inverted ? false : true; // Player is to the right of the enemy
         }
         else
         {
-            direction = false; // Player is to the left of the enemy
+            direction = inverted ? true : false; // Player is to the left of the enemy
         }
         
         transform.localScale = new Vector3(originalScale.x * (direction ? 1 : -1), originalScale.y, originalScale.z); // Flip the enemy's scale based on direction
