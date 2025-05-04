@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GroundCheck groundCheck; // Reference to the GroundCheck script
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private PlayerChangeDirection playerDirection; // Reference to the PlayerChangeDirection script
-    [SerializeField] private PlayerVFX handleVFX; // Reference to the PlayerVFX script
+    [SerializeField] public PlayerVFX handleVFX; // Reference to the PlayerVFX script
     private bool isGrounded; // Check if the player is grounded
     private Rigidbody2D rb;
     private Animator anim;
