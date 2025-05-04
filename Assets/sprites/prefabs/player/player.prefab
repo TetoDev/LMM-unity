@@ -956,7 +956,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4937,6 +4937,7 @@ GameObject:
   - component: {fileID: 6619132697468135196}
   - component: {fileID: 6770863157724085011}
   - component: {fileID: 4511023333087780963}
+  - component: {fileID: 7762659143954223402}
   m_Layer: 7
   m_Name: player
   m_TagString: Player
@@ -5132,6 +5133,7 @@ MonoBehaviour:
   playerAttack: {fileID: 6619132697468135196}
   playerDirection: {fileID: 6770863157724085011}
   handleVFX: {fileID: 4511023333087780963}
+  handleSFX: {fileID: 7762659143954223402}
 --- !u!114 &428712975007085662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5187,3 +5189,19 @@ MonoBehaviour:
   playerDirection: {fileID: 6770863157724085011}
   groundCheck: {fileID: 428712975007085662}
   isDashing: {fileID: 6053192667873741234}
+--- !u!114 &7762659143954223402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348963770934208897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b758fee94a1b51442b82aa458e2cd75d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: 50bea799b3c331441bb8859d7e4cc8a1, type: 3}
+  attackSound: {fileID: 8300000, guid: 69d3b16bc053bb6478173867a7e63e96, type: 3}
+  dashSound: {fileID: 8300000, guid: f584f1257e20168499f4a7c109086a40, type: 3}
+  hitSound: {fileID: 8300000, guid: ca81cc2f974b0e244a60d15ac9b9911d, type: 3}
