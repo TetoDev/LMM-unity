@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GroundCheck groundCheck; // Reference to the GroundCheck script
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private PlayerChangeDirection playerDirection; // Reference to the PlayerChangeDirection script
+    [SerializeField] public PlayerVFX handleVFX; // Reference to the PlayerVFX script
+    [SerializeField] public PlayerSFX handleSFX; // Reference to the PlayerSFX script
     private bool isGrounded; // Check if the player is grounded
     private Rigidbody2D rb;
     private Animator anim;
@@ -35,10 +37,10 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         direction = true;
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
-        bc = GetComponent<BoxCollider2D>();
+        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
+        anim = GetComponent<Animator>(); // Get the Animator component
+        sr = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
+        bc = GetComponent<BoxCollider2D>(); // Get the BoxCollider2D component
 
         isGrounded = false;
         move = false;
@@ -57,11 +59,13 @@ public class PlayerMovement : MonoBehaviour
 
         HandleAnimation();
 
-        if(move) playerDirection.ChangeDirection(direction); // Change the player's direction based on input
+        if(move) playerDirection.ChangeDirection(direction);
         
+        handleVFX.HandleVFX(jump); // Call the HandleVFX method from PlayerVFX script
+        handleSFX.handleSFX(jump, dash); // Call the handleSFX method from PlayerSFX script
 
         jump = false;
-
+        dash = false; 
     }
 
     private void PlayerUpdate()
@@ -171,6 +175,7 @@ public class PlayerMovement : MonoBehaviour
         if (dead || hit) return; // Ignore if already dead or hit
         
         health -= damage;
+
         if (health <= 0)
         {
             Die();
