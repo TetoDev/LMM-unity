@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "LMM.sln"
+    "dotnet.defaultSolution": "LMM-unity.sln"
 }
