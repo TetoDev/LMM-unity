@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class PlayerSFX : MonoBehaviour
 {
+    private SoundFX soundFX; // Reference to the SoundFX script
     public AudioClip jumpSound; // Sound effect for jumping
     public AudioClip attackSound; // Sound effect for attacking
     public AudioClip dashSound; // Sound effect for dashing

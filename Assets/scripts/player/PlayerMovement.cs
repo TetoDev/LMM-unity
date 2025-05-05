@@ -82,10 +82,7 @@ public class PlayerMovement : MonoBehaviour
         {
 
             Vector2 dashDirection = new Vector2( mousePos.x - rb.position.x, mousePos.y - rb.position.y ); // Dash in the initial direction
-            rb.AddForce(dashDirection.normalized * speed * 150f, ForceMode2D.Impulse); // Apply dash force
-            
-
-            dash = false; // Reset dash state
+            rb.AddForce(dashDirection.normalized * speed * 100f, ForceMode2D.Impulse); // Apply dash force
             return;
         } 
 
