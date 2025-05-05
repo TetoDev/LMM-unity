@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -17,11 +18,14 @@ public class PlayerMovement : MonoBehaviour
     private float dashCooldown = 1.0f; // Cooldown time before the player can dash again
     [SerializeField] private float speed = 7.0f;
     [SerializeField] private float jumpForce = 20.0f;
+    [SerializeField] private float frictionAmount = 0.5f; // Amount of friction applied when not moving 
     [SerializeField]  private float health = 100.0f; // Player's health
     [SerializeField] private float maxHealth = 100.0f; // Player's maximum health
     [SerializeField] private GroundCheck groundCheck; // Reference to the GroundCheck script
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private PlayerChangeDirection playerDirection; // Reference to the PlayerChangeDirection script
+    [SerializeField] public PlayerVFX handleVFX; // Reference to the PlayerVFX script
+    [SerializeField] public PlayerSFX handleSFX; // Reference to the PlayerSFX script
     private bool isGrounded; // Check if the player is grounded
     private Rigidbody2D rb;
     private Animator anim;
@@ -33,10 +37,10 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         direction = true;
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
-        bc = GetComponent<BoxCollider2D>();
+        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
+        anim = GetComponent<Animator>(); // Get the Animator component
+        sr = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
+        bc = GetComponent<BoxCollider2D>(); // Get the BoxCollider2D component
 
         isGrounded = false;
         move = false;
@@ -55,50 +59,54 @@ public class PlayerMovement : MonoBehaviour
 
         HandleAnimation();
 
-        if(move) playerDirection.ChangeDirection(direction); // Change the player's direction based on input
+        if(move) playerDirection.ChangeDirection(direction);
         
+        handleVFX.HandleVFX(jump); // Call the HandleVFX method from PlayerVFX script
+        handleSFX.handleSFX(jump, dash); // Call the handleSFX method from PlayerSFX script
 
         jump = false;
-
+        dash = false; 
     }
 
     private void PlayerUpdate()
     {   
         if (dead) return; // Ignore if dead
 
-        // Dashing logic
-        if (dash && Time.time - dashStartTime < dashTime) // Check if dash is available
-        {
-            // Disable gravity
-            rb.gravityScale = 0f; // Disable gravity
-
-            Vector2 dashDirection = new Vector2( mousePos.x - rb.position.x, mousePos.y - rb.position.y ); // Dash in the initial direction
-            rb.linearVelocity = 4 * speed * dashDirection.normalized; // Dash in the initial direction
-            
-
-            dash = false; // Reset dash state
-        } 
-        else
-        {
-            rb.gravityScale = 4f; // Enable gravity
-        }
-
-        if (move)
-        {
-            if (isGrounded)
-            {
-                rb.linearVelocity = new Vector2((direction ? 1 : -1) * speed, rb.linearVelocity.y);
-            }
-            else
-            {
-                rb.linearVelocity = new Vector2((direction ? 0.009f : -0.009f) * speed + rb.linearVelocityX, rb.linearVelocity.y);
-            }
-        }
-
         if (hit && Time.time - lastHitTime > hitCooldown)
         {
             hit = false; // Reset hit state after cooldown
         }
+
+        // Dashing logic
+        if (dash) // Check if dash is available
+        {
+
+            Vector2 dashDirection = new Vector2( mousePos.x - rb.position.x, mousePos.y - rb.position.y ); // Dash in the initial direction
+            rb.AddForce(dashDirection.normalized * speed * 150f, ForceMode2D.Impulse); // Apply dash force
+            
+
+            dash = false; // Reset dash state
+            return;
+        } 
+
+        if (move)
+        {
+            float targetSpeed = speed * (direction ? 1 : -1); // Set target speed based on direction
+            float speedDifference = targetSpeed - rb.linearVelocity.x; // Calculate speed difference
+            float accelerationRate = (Mathf.Abs(targetSpeed) > 0.01f) ? speed : speed*2f; // Set acceleration rate based on target speed
+            float movement = Mathf.Pow(Mathf.Abs(speedDifference) * accelerationRate, 1) * Mathf.Sign(speedDifference); // Calculate movement
+
+            rb.AddForce(movement * Vector2.right, ForceMode2D.Impulse); // Apply force to the player
+        }
+
+        //Friction logic
+        if (groundCheck.GetLastGroundedTime() > 0f && !move) {
+            float amount = Mathf.Min(Mathf.Abs(rb.linearVelocityX), Mathf.Abs(frictionAmount));
+            amount *= Mathf.Sign(rb.linearVelocity.x); // Get the sign of the velocity
+            rb.AddForce(-amount * Vector2.right, ForceMode2D.Impulse); // Apply friction force to the player
+        }
+
+        
 
         if (jump)
         {
@@ -113,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         if (dead || dash) return; // Ignore if dead or dashing
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.Q))
         {
             move = true;
             direction = false;
@@ -157,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        rb.linearVelocityY = jumpForce; // Apply jump force
     }
 
 
@@ -167,6 +175,7 @@ public class PlayerMovement : MonoBehaviour
         if (dead || hit) return; // Ignore if already dead or hit
         
         health -= damage;
+
         if (health <= 0)
         {
             Die();
