@@ -1,0 +1,5 @@
+NameScene,IdTile,SpawnCord,lenght
+SceneStructureT1,0,300,10
+SceneStructureT1,0,100,11
+SceneStructureT1,0,200,12
+SceneStructureT1,0,-100,13
