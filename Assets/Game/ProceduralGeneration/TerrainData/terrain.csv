@@ -1,305 +1,95 @@
-#snow#
-5, 10
-tree,(,64x64
-,,0,1000
-)
-terrain,(,32x32
-tile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-topTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_30.asset,0,1000
-bottomDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_18.asset,0,1000
-doubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_60.asset,0,1000
-topDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_51.asset,0,1000
-bottomLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_19.asset,0,1000
-leftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_11.asset,0,1000
-topLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_29.asset,0,1000
-bottomRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_18.asset,0,1000
-rightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_13.asset,0,1000
-topRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_31.asset,0,1000
-scaleTile,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_278.asset,0,1000
-)
-grass,(,32x32
-,,0,1000
-)
-decors,(,32x32
-spique,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_71.asset,0,1000
-tombe,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_92.asset,0,1000
-rock,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_197.asset,0,1000
-chest,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_312.asset,0,1000
-,,0,1000
-)
-#chao / test#
-10, 10
-tree,(,64x64
-,,0,1000
-)
-terrain,(,32x32
-tile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_132.asset,0,1000
-topTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-bottomDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-doubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-topDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-bottomLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-leftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-topLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-bottomRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-rightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-topRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-scale,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_251.asset,0,1000
-)
-grass,(,32x32
-,,0,1000
-)
-decors,(,32x32
-,,0,1000
-)
-#blue plannet 1#
-8, 8
-tree,(,64x64
-,,0,1000
-)
-terrain,(,32x32
-tile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-solid.asset,0,1000
-topTile,Assets/Game/ProceduralGeneration/Tiles/cave/ground-top-2.asset,0,1000
-bottomDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-doubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-topDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2-plant.asset,0,1000
-bottomLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-tile-2.asset,0,1000
-leftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-left.asset,0,1000
-topLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-top-left.asset,0,1000
-bottomRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-tile-2.asset,0,1000
-rightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-right.asset,0,1000
-topRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-top-right.asset,0,1000
-scaleTile,Assets/Game/ProceduralGeneration/Tiles/cave/ladder.asset,0,1000
-)
-grass,(,32x32
-grass 1,Assets/Game/ProceduralGeneration/Tiles/cave/plant-1.asset,0,1000
-grass 1,Assets/Game/ProceduralGeneration/Tiles/cave/plant-2.asset,0,1000
-grass 1,Assets/Game/ProceduralGeneration/Tiles/cave/plant-3.asset,0,1000
-grass 1,Assets/Game/ProceduralGeneration/Tiles/cave/plant-4.asset,0,1000
-)
-decors,(,32x32
-,Assets/Game/ProceduralGeneration/Tiles/cave/spikes.asset,0,1000
-)
-#blue plannet 2#
-8, 3
-tree,(,64x64
-,,0,1000
-)
-terrain,(,32x32
-tile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-solid.asset,0,1000
-topTile,Assets/Game/ProceduralGeneration/Tiles/cave/ground-top-2.asset,0,1000
-bottomDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-doubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-topDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2-plant.asset,0,1000
-bottomLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-tile-2.asset,0,1000
-leftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-left.asset,0,1000
-topLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-top-left.asset,0,1000
-bottomRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-tile-2.asset,0,1000
-rightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-right.asset,0,1000
-topRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/dirt-top-right.asset,0,1000
+#desert#
+10,22,10,25,85
+@terrain
+terrain,(,Layer_1
+tile,Assets/sprites/tiles/TileAssets/Nature/Sand1.asset,0,1000
+topTile,Assets/sprites/tiles/TileAssets/Nature/Sand6.asset,0,1000
+bottomDoubleEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand1.asset,0,1000
+doubleEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand15.asset,0,1000
+topDoubleEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand13.asset,0,1000
+bottomLeftEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand1.asset,0,1000
+leftEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand9.asset,0,1000
+topLeftEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand5.asset,0,1000
+bottomRightEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand1.asset,0,1000
+rightEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand7.asset,0,1000
+topRightEdgeTile,Assets/sprites/tiles/TileAssets/Nature/Sand2.asset,0,1000
 scaleTile,,0,1000
 )
-grass,(,32x32
-grass 1,Assets/Game/ProceduralGeneration/Tiles/cave/plant-1.asset,0,1000
-grass 1,Assets/Game/ProceduralGeneration/Tiles/cave/plant-2.asset,0,1000
-grass 1,Assets/Game/ProceduralGeneration/Tiles/cave/plant-3.asset,0,1000
-grass 1,Assets/Game/ProceduralGeneration/Tiles/cave/plant-4.asset,0,1000
-)
-decors,(,32x32
-,Assets/Game/ProceduralGeneration/Tiles/cave/spikes.asset,0,1000
-)
-#cave#
-10, 8
-tree,(,64x64
+tree,(,Layer_3
 ,,0,1000
 )
-terrain,(,32x32
-tile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Rock/Rock25.asset,0,1000
-topTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2-plant.asset,0,1000
-bottomDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-doubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-topDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-4-plant-10.asset,0,1000
-bottomLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-leftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-topLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-bottomRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-rightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-topRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/cave/rockblock-2.asset,0,1000
-scaleTile,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_278.asset,0,1000
+grass,(,Layer_2
+,Assets/sprites/tiles/TileAssets/Nature/Cactus2.asset,0,5
+,Assets/sprites/tiles/TileAssets/Nature/Cactus4.asset,0,5
 )
-grass,(,32x32
-,Assets/Game/ProceduralGeneration/Tiles/cave/plant-1.asset,0,1000
-,Assets/Game/ProceduralGeneration/Tiles/cave/plant-2.asset,0,1000
-,Assets/Game/ProceduralGeneration/Tiles/cave/plant-3.asset,0,1000
-,Assets/Game/ProceduralGeneration/Tiles/cave/plant-4.asset,0,1000
+decors,(,Layer_1
+tauneau,Assets/sprites/tiles/VillageStuff/TX Village Props_21.asset,0,1000
 )
-decors,(,32x32
-,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_120.asset,0,1000
-,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_169.asset,0,1000
-,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_207.asset,0,1000
+structures,(,Layer_4
+tree 1,Assets/sprites/tiles/NatureTileMap/Tree_5_1.asset,-7,100
+tree 2,Assets/sprites/tiles/NatureTileMap/Tree_22_2.asset,-7,100
 )
-#desert#
-10, 8
-tree,(,64x64
-,,0,1000
-)
-terrain,(,32x32
-tile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Sand1.asset,0,1000
-topTile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Sand6.asset,0,1000
-bottomDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Sand1.asset,0,1000
-doubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Sand15.asset,0,1000
-topDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Sand13.asset,0,1000
-bottomLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Sand1.asset,0,1000
-leftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Sand9.asset,0,1000
-topLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Sand5.asset,0,1000
-bottomRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Sand1.asset,0,1000
-rightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Sand7.asset,0,1000
-topRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Sand2.asset,0,1000
-scaleTile,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_278.asset,0,1000
-)
-grass,(,32x32
-,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Cactus4.asset,0,1000
-,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Cactus3.asset,0,1000
-,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Cactus2.asset,0,1000
-,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Cactus1.asset,0,1000
-,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Tree16_1.asset,0,1000
-)
-decors,(,32x32
-,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Nature/Stone1.asset,0,1000
-)
-#plaine#
-5, 6
-tree,(,64x64
-,,0,1000
-)
-terrain,(,32x32
-tile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_12.asset,0,1000
-topTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_26.asset,0,1000
-bottomDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_20.asset,0,1000
-doubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_59.asset,0,1000
-topDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_50.asset,0,1000
-bottomLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_21.asset,0,1000
-leftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_11.asset,0,1000
-topLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_65.asset,0,1000
-bottomRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_20.asset,0,1000
-rightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_13.asset,0,1000
-topRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/Tilesheet - WOODS_67.asset,0,1000
-scaleTile,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_278.asset,0,1000
-)
-grass,(,32x32
-grass 1,Assets/Game/ProceduralGeneration/Tiles/NatureTileMap/NatureTileMap_0.asset,0,1000
-grass 2,Assets/Game/ProceduralGeneration/Tiles/NatureTileMap/NatureTileMap_3.asset,0,1000
-plant 1,Assets/Game/ProceduralGeneration/Tiles/NatureTileMap/NatureTileMap_5.asset,0,1000
-mucherom,Assets/Game/ProceduralGeneration/Tiles/NatureTileMap/NatureTileMap_8.asset,0,1000
-)
-decors,(,32x32
-pot 1,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_23.asset,0,1000
-pot 2,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_22.asset,0,1000
-pot 3,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_24.asset,0,1000
-chest,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_314.asset,0,1000
-saut,Assets/Game/ProceduralGeneration/Tiles/TileAssets/Others/Torch1.asset,0,1000
-)
+@endterrain
+@parallax
+,Assets/sprites/backgrounds/deep_woods/BACKGROUND.png,0
+,Assets/sprites/backgrounds/deep_woods/BUSH - BACKGROUND.png,0.0001
+,Assets/sprites/backgrounds/deep_woods/VINES - Second.png,-0.0002
+,Assets/sprites/backgrounds/deep_woods/WOODS - First.png,0.0003
+,Assets/sprites/backgrounds/deep_woods/WOODS - Fourth.png,-0.0004
+,Assets/sprites/backgrounds/deep_woods/WOODS - Second.png,0.0005
+,Assets/sprites/backgrounds/deep_woods/WOODS - Third.png,0.0006
+@endparallax
+@structure
+b,100,,20
+@endstructure
 #foret#
-10, 8
-tree,(,64x64
-,Assets/Game/ProceduralGeneration/Tiles/NatureTileMap/64_17.asset,0,1000
-,,0,1000
+10,5,32,76,41
+@terrain
+terrain,(,Layer_1
+tile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_4.asset,0,1000
+topTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_59.asset,0,1000
+bottomDoubleEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_80.asset,0,1000
+doubleEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_96.asset,0,1000
+topDoubleEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_30.asset,0,1000
+bottomLeftEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_60.asset,0,1000
+leftEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_48.asset,0,1000
+topLeftEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_31.asset,0,1000
+bottomRightEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_41.asset,0,1000
+rightEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_47.asset,0,1000
+topRightEdgeTile,Assets/sprites/tiles/TerrainTileMap/TX Tileset Ground_129.asset,0,1000
+scaleTile,,0,1000
 )
-terrain,(,32x32
-tile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_51.asset,0,1000
-topTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_42.asset,0,1000
-bottomDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_33.asset,0,1000
-doubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_54.asset,0,1000
-topDoubleEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_30.asset,0,1000
-bottomLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_60.asset,0,1000
-leftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_48.asset,0,1000
-topLeftEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_0.asset,0,1000
-bottomRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_41.asset,0,1000
-rightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_47.asset,0,1000
-topRightEdgeTile,Assets/Game/ProceduralGeneration/Tiles/TerrainTileMap/TX Tileset Ground_2.asset,0,1000
-scaleTile,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_278.asset,0,1000
+tree,(,Layer_3
+,Assets/sprites/tiles/NatureTileMap/64_17.asset,0,1000
+,Assets/sprites/tiles/NatureTileMap/64_16.asset,0,1000
 )
-grass,(,32x32
-,Assets/Game/ProceduralGeneration/Tiles/NatureTileMap/TX Village Props_252.asset,0,5
-,Assets/Game/ProceduralGeneration/Tiles/NatureTileMap/TX Village Props_253.asset,0,5
-,Assets/Game/ProceduralGeneration/Tiles/NatureTileMap/TX Village Props_254.asset,0,5
-,Assets/Game/ProceduralGeneration/Tiles/NatureTileMap/TX Village Props_238.asset,0,5
-,Assets/Game/ProceduralGeneration/Tiles/NatureTileMap/TX Village Props_239.asset,0,5
+grass,(,Layer_2
+,Assets/sprites/tiles/NatureTileMap/TX Village Props_238.asset,0,5
+,Assets/sprites/tiles/NatureTileMap/TX Village Props_239.asset,0,5
+,Assets/sprites/tiles/NatureTileMap/TX Village Props_252.asset,0,5
+,Assets/sprites/tiles/NatureTileMap/TX Village Props_253.asset,0,5
+,Assets/sprites/tiles/NatureTileMap/TX Village Props_254.asset,0,5
 )
-decors,(,32x32
-tauneau,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_21.asset,0,1000
-tombe,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_92.asset,0,1000
-panneau,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_26.asset,0,1000
-bush,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_101.asset,0,1000
-sac 1,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_124.asset,0,1000
-sac 2,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_124.asset,0,1000
-roue,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_7.asset,0,1000
-citrouille,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_68.asset,0,1000
+decors,(,Layer_1
+tauneau,Assets/sprites/tiles/VillageStuff/TX Village Props_21.asset,0,1000
+tauneau,Assets/sprites/tiles/VillageStuff/TX Village Props_7.asset,0,1000
+tauneau,Assets/sprites/tiles/VillageStuff/TX Village Props_23.asset,0,1000
+tauneau,Assets/sprites/tiles/VillageStuff/TX Village Props_22.asset,0,1000
 )
-structures,(,32x32
-,,0,0
+structures,(,Layer_4
+tree 1,Assets/sprites/tiles/NatureTileMap/Tree_5_1.asset,-7,100
+tree 2,Assets/sprites/tiles/NatureTileMap/Tree_22_2.asset,-7,100
 )
-#plaine 1#
-8, 10
-tree,(,64x64
-,,0,0
-)
-terrain,(,32x32
-tile,Assets/sprites/tiles/forest/TileGround18.asset,0,1000
-topTile,Assets/sprites/tiles/forest/TileGround2.asset,0,1000
-bottomDoubleEdgeTile,Assets/sprites/tiles/forest/TileGround24.asset,0,1000
-doubleEdgeTile,Assets/sprites/tiles/forest/TileGround29.asset,0,1000
-topDoubleEdgeTile,Assets/sprites/tiles/forest/TileGround15.asset,0,1000
-bottomLeftEdgeTile,Assets/sprites/tiles/forest/TileGround24.asset,0,1000
-leftEdgeTile,Assets/sprites/tiles/forest/TileGround17.asset,0,1000
-topLeftEdgeTile,Assets/sprites/tiles/forest/TileGround1.asset,0,1000
-bottomRightEdgeTile,Assets/sprites/tiles/forest/TileGround23.asset,0,1000
-rightEdgeTile,Assets/sprites/tiles/forest/TileGround19.asset,0,1000
-topRightEdgeTile,Assets/sprites/tiles/forest/TileGround3.asset,0,1000
-scaleTile,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_278.asset,0,1000
-)
-grass,(,32x32
-,Assets/sprites/tiles/forest/TilePlant5.asset,0,5
-,Assets/sprites/tiles/forest/TilePlant6.asset,0,5
-,Assets/sprites/tiles/forest/TilePlant7.asset,0,5
-,Assets/sprites/tiles/forest/TilePlant8.asset,0,5
-)
-decors,(,32x32
-fleur,Assets/sprites/tiles/forest/TilePlant10.asset,0,1000
-fleur 1,Assets/sprites/tiles/forest/TilePlant9.asset,0,1000
-)
-structures,(,32x32
-,,0,0
-)
-#medieval cave#
-8, 3
-tree,(,64x64
-,,0,0
-)
-terrain,(,32x32
-tile,Assets/sprites/tiles/medieval_cave/Medieval_tiles_free2_109.asset,0,1000
-topTile,Assets/sprites/tiles/medieval_cave/Medieval_tiles_free2_116.asset,0,1000
-bottomDoubleEdgeTile,Assets/sprites/tiles/medieval_cave/Medieval_tiles_free2_109.asset,0,1000
-doubleEdgeTile,Assets/sprites/tiles/medieval_cave/Medieval_tiles_free2_109.asset,0,1000
-topDoubleEdgeTile,Assets/sprites/tiles/medieval_cave/Medieval_tiles_free2_76.asset,0,1000
-bottomLeftEdgeTile,Assets/sprites/tiles/medieval_cave/Medieval_tiles_free2_90.asset,0,1000
-leftEdgeTile,Assets/sprites/tiles/medieval_cave/Medieval_tiles_free2_74.asset,0,1000
-topLeftEdgeTile,Assets/sprites/tiles/forest/TileGround1.asset,0,1000
-bottomRightEdgeTile,Assets/sprites/tiles/forest/TileGround23.asset,0,1000
-rightEdgeTile,Assets/sprites/tiles/forest/TileGround19.asset,0,1000
-topRightEdgeTile,Assets/sprites/tiles/forest/TileGround3.asset,0,1000
-scaleTile,Assets/Game/ProceduralGeneration/Tiles/VillageStuff/TX Village Props_278.asset,0,1000
-)
-grass,(,32x32
-,Assets/sprites/tiles/forest/TilePlant5.asset,0,5
-,Assets/sprites/tiles/forest/TilePlant6.asset,0,5
-,Assets/sprites/tiles/forest/TilePlant7.asset,0,5
-,Assets/sprites/tiles/forest/TilePlant8.asset,0,5
-)
-decors,(,32x32
-fleur,Assets/sprites/tiles/forest/TilePlant10.asset,0,1000
-fleur 1,Assets/sprites/tiles/forest/TilePlant9.asset,0,1000
-)
-structures,(,32x32
-,,0,0
-)
+@endterrain
+@parallax
+,Assets/sprites/backgrounds/deep_woods/BACKGROUND.png,0
+,Assets/sprites/backgrounds/deep_woods/BUSH - BACKGROUND.png,0.0001
+,Assets/sprites/backgrounds/deep_woods/VINES - Second.png,-0.0002
+,Assets/sprites/backgrounds/deep_woods/WOODS - First.png,0.0003
+,Assets/sprites/backgrounds/deep_woods/WOODS - Fourth.png,-0.0004
+,Assets/sprites/backgrounds/deep_woods/WOODS - Second.png,0.0005
+,Assets/sprites/backgrounds/deep_woods/WOODS - Third.png,0.0006
+@endparallax
+@structure
+null,100,Assets/Game/ProceduralGeneration/TerrainData/StructurePrefab/arene 1.prefab,50
+@endstructure
