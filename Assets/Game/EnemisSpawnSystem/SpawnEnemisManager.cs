@@ -29,17 +29,27 @@ public class SpawnEnemisManager : MonoBehaviour
 
             // if there is a terrain mouvement
             if ( mapDisplay.mapWidth != previousMapWidth ){
-                StartSpawn(mapDisplay.mapWidth - previousMapWidth);
+                Spawn(mapDisplay.mapWidth - previousMapWidth);
                 previousMapWidth = mapDisplay.mapWidth;
             } else if (mapDisplay.offsetX != previousOffset){
-                StartSpawn(mapDisplay.offsetX - previousOffset);
+                Spawn(mapDisplay.offsetX - previousOffset);
                 previousOffset = mapDisplay.offsetX;
             }
             
         }
     }
 
-    private void StartSpawn(int spawnLenthInTiles, bool reset = false) {
+    private void Spawn(int spawnLenthInTiles, bool reset = false) {
+
+            void DisplayInWorld(Vector3 position, TSpawnEnemis enemi){
+                // if the enemi is not spawn he spawn
+                if (!enemiAlreadySpawnVectGO.ContainsKey(position)) {
+                    GameObject newEnemy = Instantiate(enemi.prefab, position, Quaternion.identity, enemisFolder.transform);
+                    enemiAlreadySpawnVectGO[position] = newEnemy;
+                    enemiAlreadySpawnGOVect[newEnemy] = position;
+                }   
+            }
+
             // remove existing enemis
             if (reset){
                 foreach (Transform child in enemisFolder.transform)
@@ -47,10 +57,11 @@ public class SpawnEnemisManager : MonoBehaviour
                         GameObject.Destroy(child.gameObject);
                     }
             } else{
+
                 foreach (Transform child in enemisFolder.transform)
                     {
                         float terrainLeftEdge = convertionSysteme.GetLeftTerrainEdge();
-                        if (( child.position.x < terrainLeftEdge ) || ( child.position.x > terrainLeftEdge + convertionSysteme.TileToWorld(mapDisplay.mapWidth) + convertionSysteme.overFlowScreenDistanceInTile)){
+                        if (( child.position.x < terrainLeftEdge - convertionSysteme.overFlowScreenDistanceInTile / 2) || ( child.position.x > terrainLeftEdge + convertionSysteme.TileToWorld(mapDisplay.mapWidth) + convertionSysteme.overFlowScreenDistanceInTile / 2)){
                             // because when enemi die they destroy there self
                             if (enemiAlreadySpawnGOVect.ContainsKey(child.gameObject)){
                                 enemiAlreadySpawnVectGO.Remove(enemiAlreadySpawnGOVect[child.gameObject]);
@@ -61,28 +72,24 @@ public class SpawnEnemisManager : MonoBehaviour
                         }
                         
                     }
+
             }
             
-            // spawner
+            // spawner system
             Vector3 position;
             for (int x = 0; x < Mathf.Abs(spawnLenthInTiles); x++){
                 foreach (TSpawnEnemis enemi in lstEnemis){
-                    if (enemi.ShouldSpawn(mapDisplay.seed, x + mapDisplay.offsetX)){
-                        // offset et x * tilmap size
-                        //if (spawnLenthInTiles >= 0){
-                            position = new Vector3(convertionSysteme.TileToWorld(mapDisplay.offsetX + mapDisplay.mapWidth - x  - 2*convertionSysteme.overFlowScreenDistanceInTile) , mapDisplay.biome.mapMaxHeight + worldOrigin.transform.localPosition.y, 109);
-                        //} else{
-                        //    position = new Vector3(convertionSysteme.TileToWorld(mapDisplay.offsetX + x  + 1) , mapDisplay.biome.mapMaxHeight + worldOrigin.transform.localPosition.y, 109);
-                        //}
-                        // if wasn't spawn
-                        if (!enemiAlreadySpawnVectGO.ContainsKey(position)) {
-                            GameObject newEnemy = Instantiate(enemi.prefab, position, Quaternion.identity, enemisFolder.transform);
-                            enemiAlreadySpawnVectGO[position] = newEnemy;
-                            enemiAlreadySpawnGOVect[newEnemy] = position;
-                        }                 
-                        
+                    // tow spawn systemes : one if the player is walking forward and one if he is walking backward
+                    // x are compute in a way that they don't spawn in the screen
+                    int xForwardSpawnPos = mapDisplay.offsetX + mapDisplay.mapWidth - x  - convertionSysteme.overFlowScreenDistanceInTile;
+                    int xBackwardSpawnPos = mapDisplay.offsetX + x - 3 * convertionSysteme.overFlowScreenDistanceInTile / 4;
+                    if (spawnLenthInTiles >= 0 && enemi.ShouldSpawn(mapDisplay.seed, xForwardSpawnPos)){
+                        position = new Vector3(convertionSysteme.TileToWorld(xForwardSpawnPos) , mapDisplay.biome.mapMaxHeight + worldOrigin.transform.localPosition.y, 0);
+                        DisplayInWorld(position, enemi);
+                    } else if ( enemi.ShouldSpawn(mapDisplay.seed, xBackwardSpawnPos)){
+                        position = new Vector3(convertionSysteme.TileToWorld(xBackwardSpawnPos) , mapDisplay.biome.mapMaxHeight + worldOrigin.transform.localPosition.y, 0);
+                        DisplayInWorld(position, enemi);
                     }
-                    
                 }
             }
     }

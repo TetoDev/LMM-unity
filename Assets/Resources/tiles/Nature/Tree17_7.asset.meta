@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 0fa847f32b4edc14791c1014fa035d47
+timeCreated: 1553574079
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Tree17_7.asset
+  uploadId: 302008

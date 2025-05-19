@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 3f03c20c7eb197349b3db0b3c85e6006
+timeCreated: 1552116594
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Others/TreasureChest1.asset
+  uploadId: 302008

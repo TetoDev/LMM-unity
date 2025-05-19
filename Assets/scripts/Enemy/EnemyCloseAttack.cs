@@ -4,7 +4,7 @@ public class EnemyCloseAttack : MonoBehaviour
 {
 
 
-    [SerializeField] private float attackRange = 1.5f; // Range of the attack
+    [SerializeField] public float attackRange = 1.5f; // Range of the attack
     [SerializeField] private LayerMask playerLayers; // Layers to detect players
     [SerializeField] private float attackCooldown = 1.0f; // Cooldown time before the enemy can attack again
     [SerializeField] private float attackDamage = 10f; // Damage dealt by the attack
@@ -62,6 +62,20 @@ public class EnemyCloseAttack : MonoBehaviour
         if (anim.GetBool("hit")) return;
         lastAttackTime = Time.time; // Update the last attack time
         anim.SetTrigger("attack"); // Trigger the attack animation
+    }
+
+    public bool IsAttacking(){
+        return Time.time < lastAttackTime + attackCooldown || anim.GetFloat("AttackActive") > 0f; // Check if the enemy is currently attacking
+    }
+
+    public float GetAttackDamage(){
+        return attackDamage; // Return the attack damage
+    }
+    public void SetAttackDamage(float damage){
+        attackDamage = damage; // Set the attack damage
+    }
+    public void SetAttackCollider(Collider2D collider){
+        attackCollider = collider; // Set the attack collider
     }
     
 }

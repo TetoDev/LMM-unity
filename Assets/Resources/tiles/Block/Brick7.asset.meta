@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 8fbdb1162ae7a4643945486aea2aefeb
+timeCreated: 1552113422
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Block/Brick7.asset
+  uploadId: 302008

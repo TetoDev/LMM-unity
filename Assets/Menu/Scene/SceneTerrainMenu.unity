@@ -563,7 +563,7 @@ Transform:
   m_GameObject: {fileID: 756708055}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 392.56, y: 62.039577, z: 109.709}
+  m_LocalPosition: {x: 377.53, y: 62.039577, z: 109.709}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -985,6 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapDisplay: {fileID: 2080064379}
+  overFlowScreenDistanceInTile: 1
 --- !u!4 &1188596959
 Transform:
   m_ObjectHideFlags: 0
@@ -5478,6 +5479,7 @@ MonoBehaviour:
   mapDisplay: {fileID: 2080064379}
   worldOrigin: {fileID: 1858326375}
   target: {fileID: 482724855}
+  layers: {fileID: 756708055}
   convertionSysteme: {fileID: 1188596958}
 --- !u!1 &2047038878
 GameObject:
@@ -5839,7 +5841,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfc5b0791526dc449d5c31832e37e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
+  StructureFolder: {fileID: 0}
+  layers: {fileID: 0}
+  convertionSysteme: {fileID: 0}
+  worldOrigin: {fileID: 0}
   mapWidth: 59
   seed: -1
   offsetX: -8
@@ -5851,6 +5856,7 @@ MonoBehaviour:
     probaDecor: 32
     probaTree: 41
     probaGrass: 76
+    lstStructures: []
     lstParallaxBackground:
     - name: 
       texture: {fileID: 2800000, guid: f44fd67bd73d546469d7c317fcd1d5ae, type: 3}

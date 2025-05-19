@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 7f539dfb998ac1a448cd0e9f4b0c28d1
+timeCreated: 1553574057
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Others/Torch8.asset
+  uploadId: 302008

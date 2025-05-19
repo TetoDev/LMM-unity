@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 7e9683f49b69b914bb2a8f8e7b8f6bc7
+timeCreated: 1552116708
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Lava4.asset
+  uploadId: 302008

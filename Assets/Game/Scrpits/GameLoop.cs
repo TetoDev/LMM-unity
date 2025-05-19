@@ -8,38 +8,44 @@ public class GameLoop : MonoBehaviour
     public SaveAndLoad saveAndLoad;
     public MapDisplay mapDisplay;
     public WorldUnitConvertion convertionSysteme;
+    public GameObject player;
     public int nbBiomeOfAGame = 4;
+    public int playerOffset = 7;
 
     List<string> gameBiomeList;
 
     bool GameIsCompleted = false;
     int seed = 0;
     float gameTimer = 0;
-
-    
-    int biomeCounter = 0;
+    int biomeCounter = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Vector3 tempPlayerPos = player.transform.position;
+        player.transform.position = new Vector3(playerOffset, tempPlayerPos.y + mapDisplay.biome.mapMaxHeight, tempPlayerPos.z);
+        
+        seed = saveAndLoad.GetSeed();
+        mapDisplay.seed = seed;
+        
         gameBiomeList = ShufflePseudoRandom(saveAndLoad.LstBiome(), seed);
         gameBiomeList = gameBiomeList.GetRange(0, Mathf.Min(nbBiomeOfAGame, gameBiomeList.Count));
-        mapDisplay.seed = saveAndLoad.GetSeed();
-        mapDisplay.biome = saveAndLoad.Load(gameBiomeList[biomeCounter]);
+        mapDisplay.biome = saveAndLoad.Load(gameBiomeList[biomeCounter - 1]);
         biomeCounter += 1;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (mapDisplay.biome.isCompleted && biomeCounter <= gameBiomeList.Count - 1){
-            mapDisplay.biome = saveAndLoad.Load(gameBiomeList[biomeCounter]);
+        if (mapDisplay.biome.isCompleted && biomeCounter <= gameBiomeList.Count){
+            mapDisplay.biome = saveAndLoad.Load(gameBiomeList[biomeCounter - 1]);
             mapDisplay.GenerateMap();
+            Vector3 tempPlayerPos = player.transform.position;
+            player.transform.position = new Vector3(playerOffset, tempPlayerPos.y + mapDisplay.biome.mapMaxHeight, tempPlayerPos.z);
             biomeCounter += 1;
         }
 
-        if (biomeCounter == gameBiomeList.Count){
+        if (biomeCounter == gameBiomeList.Count + 1){
             GameIsCompleted = true;
         }
 
@@ -59,6 +65,7 @@ public class GameLoop : MonoBehaviour
         string tempBiome;
         for(int i = 0 ; i < nbBiome ; i++){
             tempBiome = lst[prng.Next (0, lst.Count)];
+            Debug.Log(tempBiome);
             res.Add(tempBiome);
             lst.Remove(tempBiome);
         }

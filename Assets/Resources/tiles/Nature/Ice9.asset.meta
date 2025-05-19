@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 64b505ec47ae5a5469d3cdd1998d79a8
+timeCreated: 1553574041
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Ice9.asset
+  uploadId: 302008

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 2cd4eb6cc829a234ab35e70254386198
+timeCreated: 1552124437
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Others/Log2.asset
+  uploadId: 302008

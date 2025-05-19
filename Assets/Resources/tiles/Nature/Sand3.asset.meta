@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 54fa8b841dc43c34f9dc4a9cf215e986
+timeCreated: 1552130809
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Sand3.asset
+  uploadId: 302008

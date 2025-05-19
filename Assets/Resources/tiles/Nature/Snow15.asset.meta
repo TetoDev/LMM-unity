@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 7d3e845a32236144e9081a764d4b5a0f
+timeCreated: 1553574055
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Snow15.asset
+  uploadId: 302008

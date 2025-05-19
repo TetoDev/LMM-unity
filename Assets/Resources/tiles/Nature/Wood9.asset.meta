@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 060482b93026d534cb96822b407f05f5
+timeCreated: 1552320505
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Wood9.asset
+  uploadId: 302008

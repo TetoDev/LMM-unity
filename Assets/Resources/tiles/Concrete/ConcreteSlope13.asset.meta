@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 6aee6a31d0396b546965511ecdbc7c40
+timeCreated: 1553574014
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Concrete/ConcreteSlope13.asset
+  uploadId: 302008

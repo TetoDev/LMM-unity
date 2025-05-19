@@ -4,21 +4,43 @@ using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using System.Globalization;
 using UnityEditor;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Threading.Tasks;
 
 public class SaveAndLoad : MonoBehaviour
 {
-    string filePathTerrainData = "Assets/Game/ProceduralGeneration/TerrainData/terrain.csv";
-    string filePathStructuresData = "Assets/Game/ProceduralGeneration/TerrainData/structures.csv";
-    string filePathSeep = "Assets/Game/ProceduralGeneration/TerrainData/seed.csv";
-    string filePathRecord = "Assets/Menu/GameData/records.csv";
+    string filePathTerrainData => Application.persistentDataPath + "terrain.csv";
+    string filePathSeep => Application.persistentDataPath + "seed.csv";
+    string filePathRecord => Application.persistentDataPath + "records.csv";
 
-    static void CheckPathOk(string path){
+    void Start(){
+        InitFile("TerrainData/terrain", filePathTerrainData);
+        InitFile("TerrainData/seed", filePathSeep);
+        InitFile("TerrainData/records", filePathRecord);
+        
+    }
+
+    private void InitFile(string resourcePath, string persistantPath)
+    {
+        TextAsset mapData = Resources.Load<TextAsset>(resourcePath);
+
+        if (!File.Exists(persistantPath))
+        {
+            File.WriteAllText(persistantPath, mapData.text);
+            Debug.Log($"File copy at : {persistantPath}");
+        }
+    }
+
+
+    private void CheckPathOk(string path){
         if (path == ""){
             Debug.Log("ERROR (from-SaveAndLoad.cs) : couldn't find the path with UnityEditor");
         }
     }
 
     private List<string> GetFileContent(string path){
+
         List<string> lines = new List<string>{};
         if (File.Exists(path))
         {
@@ -30,6 +52,7 @@ public class SaveAndLoad : MonoBehaviour
             }
             reader.Close();
         }
+        Debug.Log(lines);
         return lines;
     }
 
@@ -55,6 +78,24 @@ public class SaveAndLoad : MonoBehaviour
     }
 
     private List<string> BiomeToStr(TBiome biome){
+        string FindTilePath(string rootFolder, string tileName)
+        {
+            // Cherche tous les fichiers dans rootFolder et sous-dossiers
+            var files = Directory.GetFiles(rootFolder, "*", SearchOption.AllDirectories);
+            
+            foreach (var file in files)
+            {
+                // Prend le nom de fichier sans chemin ni extension
+                string fileNameWithoutExt = Path.GetFileNameWithoutExtension(file);
+                
+                if (fileNameWithoutExt == tileName)
+                {
+                    return file; // chemin complet du fichier trouvé
+                }
+            }
+            return null; // pas trouvé
+        }
+
         List<string> lines = new List<string>{};
         lines.Add($"#{biome.name}#");
         lines.Add($"{biome.mapMaxHeight},{biome.noiseScale},{biome.probaDecor},{biome.probaGrass},{biome.probaTree}");
@@ -68,7 +109,7 @@ public class SaveAndLoad : MonoBehaviour
 
             for (int j = 0 ; j < element.lstOfThisElementType.Count ; j++){
                 displayElement subElement = element.lstOfThisElementType[j];
-                string path = AssetDatabase.GetAssetPath(subElement.tile);
+                string path = AssetDatabase.GetAssetPath(subElement.tile).Replace("Assets/Resources/", "").Replace(".asset", "");
                 CheckPathOk(path);
                 lines.Add($"{subElement.name},{path},{subElement.minHeight},{subElement.maxHeight}");
             }
@@ -79,15 +120,14 @@ public class SaveAndLoad : MonoBehaviour
         lines.Add("@parallax"); 
         foreach (TParallaxBackground bg in biome.lstParallaxBackground)
         {
-            string texturePath = AssetDatabase.GetAssetPath(bg.texture);
-            CheckPathOk(texturePath);
+            string texturePath = AssetDatabase.GetAssetPath(bg.texture).Replace("Assets/Resources/", "").Split('.')[0];
             lines.Add($"{bg.name},{texturePath},{bg.speed.ToString(CultureInfo.InvariantCulture)}");
         }
         lines.Add("@endparallax");
 
         lines.Add("@structure"); 
         foreach (Tstructures structure in biome.lstStructures){
-            string path = AssetDatabase.GetAssetPath(structure.prefab);
+            string path = AssetDatabase.GetAssetPath(structure.prefab).Replace("Assets/Resources/", "").Split('.')[0];
             lines.Add($"{structure.name},{structure.spawnCord},{path},{structure.length}");
         }
         lines.Add("@endstructure"); 
@@ -117,6 +157,7 @@ public class SaveAndLoad : MonoBehaviour
         }
         fileContent.AddRange(BiomeToStr(biomeToSave));
 
+        Debug.Log(filePathTerrainData);
         File.WriteAllLines(filePathTerrainData, fileContent);
         Debug.Log("file created at : " + filePathTerrainData);
     }
@@ -208,7 +249,8 @@ public class SaveAndLoad : MonoBehaviour
                 } else if (! endElement){
                     tempDisplayElement = new displayElement();
                     tempDisplayElement.name = lineOfWord[0];
-                    tempDisplayElement.tile = AssetDatabase.LoadAssetAtPath<TileBase>(lineOfWord[1]);
+                    
+                    tempDisplayElement.tile = Resources.Load<TileBase>(lineOfWord[1]);
                     tempDisplayElement.minHeight = int.Parse(lineOfWord[2]);
                     tempDisplayElement.maxHeight = int.Parse(lineOfWord[3]);
                     tempLstDisplayElements.lstOfThisElementType.Add(tempDisplayElement);
@@ -253,8 +295,7 @@ public class SaveAndLoad : MonoBehaviour
                 string name = lineOfWord[0];
                 string path = lineOfWord[1];
                 float speed = float.Parse(lineOfWord[2], CultureInfo.InvariantCulture);
-
-                Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+                Texture2D texture = Resources.Load<Texture2D>(path);
                 TParallaxBackground parallax = new TParallaxBackground{};
                 parallax.name = name;
                 parallax.texture = texture;
@@ -294,7 +335,7 @@ public class SaveAndLoad : MonoBehaviour
                 Tstructures tempStructure = new Tstructures();
                 tempStructure.name = lineOfWord[0];
                 tempStructure.spawnCord = int.Parse(lineOfWord[1]);
-                tempStructure.prefab = AssetDatabase.LoadAssetAtPath<GameObject>(lineOfWord[2]);
+                tempStructure.prefab = Resources.Load<GameObject>(lineOfWord[2]);
                 tempStructure.length = int.Parse(lineOfWord[3]);
 
                 biome.lstStructures.Add(tempStructure);

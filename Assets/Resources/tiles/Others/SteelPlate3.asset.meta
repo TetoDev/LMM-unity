@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: a2c3b1b8a596c8b459cb2bd31e7ccec5
+timeCreated: 1552116579
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Others/SteelPlate3.asset
+  uploadId: 302008

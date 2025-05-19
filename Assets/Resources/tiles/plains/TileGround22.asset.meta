@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: af221da803e275a4196172d5046a5858
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 255002
+  packageName: 2D Pixel Art Platformer | Biome - Plains
+  packageVersion: 1.0
+  assetPath: Assets/2D Pixel Art Platformer Biome - Plains/Tilemap/TileGround22.asset
+  uploadId: 589272

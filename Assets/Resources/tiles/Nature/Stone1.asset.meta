@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: cf64c1f33f5e8e74a92779da2ef9114b
+timeCreated: 1553574055
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Stone1.asset
+  uploadId: 302008

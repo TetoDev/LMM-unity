@@ -1,0 +1,231 @@
+#foret#
+8,14,7,58,15
+@terrain
+terrain,(,Layer_1
+tile,tiles/TerrainTileMap/TX Tileset Ground_94,0,1000
+topTile,tiles/TerrainTileMap/TX Tileset Ground_81,0,1000
+bottomDoubleEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_80,0,1000
+doubleEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_130,0,1000
+topDoubleEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_153,0,1000
+bottomLeftEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_60,0,1000
+leftEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_29,0,1000
+topLeftEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_31,0,1000
+bottomRightEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_41,0,1000
+rightEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_47,0,1000
+topRightEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_129,0,1000
+scaleTile,,0,1000
+)
+tree,(,Layer_3
+,tiles/NatureTileMap/64_17,0,1000
+,tiles/NatureTileMap/64_16,0,1000
+)
+grass,(,Layer_2
+,tiles/NatureTileMap/TX Village Props_238,0,5
+,tiles/NatureTileMap/TX Village Props_239,0,5
+,tiles/NatureTileMap/TX Village Props_252,0,5
+,tiles/NatureTileMap/TX Village Props_253,0,5
+,tiles/NatureTileMap/TX Village Props_254,0,5
+)
+decors,(,Layer_2
+tauneau,tiles/VillageStuff/TX Village Props_92,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_316,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_24,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_26,0,1000
+)
+@endterrain
+@parallax
+,backgrounds/deep_woods/BACKGROUND,0
+,backgrounds/deep_woods/BUSH - BACKGROUND,0.0001
+,backgrounds/deep_woods/VINES - Second,0.0002
+,backgrounds/deep_woods/WOODS - First,-0.0003
+,backgrounds/deep_woods/WOODS - Fourth,0.0004
+,backgrounds/deep_woods/WOODS - Second,-0.0005
+,backgrounds/deep_woods/WOODS - Third,0.0006
+@endparallax
+@structure
+structure 1,100,StructurePrefab/arene 1,30
+structure 2,200,StructurePrefab/nextBiome,30
+@endstructure
+#foret valone#
+8,4,7,58,15
+@terrain
+terrain,(,Layer_1
+tile,tiles/TerrainTileMap/TX Tileset Ground_94,0,1000
+topTile,tiles/TerrainTileMap/TX Tileset Ground_81,0,1000
+bottomDoubleEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_80,0,1000
+doubleEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_130,0,1000
+topDoubleEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_153,0,1000
+bottomLeftEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_60,0,1000
+leftEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_29,0,1000
+topLeftEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_31,0,1000
+bottomRightEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_41,0,1000
+rightEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_47,0,1000
+topRightEdgeTile,tiles/TerrainTileMap/TX Tileset Ground_129,0,1000
+scaleTile,,0,1000
+)
+tree,(,Layer_3
+,tiles/NatureTileMap/64_17,0,1000
+,tiles/NatureTileMap/64_16,0,1000
+)
+grass,(,Layer_2
+,tiles/NatureTileMap/TX Village Props_238,0,5
+,tiles/NatureTileMap/TX Village Props_239,0,5
+,tiles/NatureTileMap/TX Village Props_252,0,5
+,tiles/NatureTileMap/TX Village Props_253,0,5
+,tiles/NatureTileMap/TX Village Props_254,0,5
+)
+decors,(,Layer_2
+tauneau,tiles/VillageStuff/TX Village Props_92,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_316,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_24,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_26,0,1000
+)
+@endterrain
+@parallax
+,backgrounds/deep_woods/BACKGROUND,0
+,backgrounds/deep_woods/BUSH - BACKGROUND,1E-05
+,backgrounds/deep_woods/VINES - Second,-2E-05
+,backgrounds/deep_woods/WOODS - First,3E-05
+,backgrounds/deep_woods/WOODS - Fourth,-4E-05
+,backgrounds/deep_woods/WOODS - Second,5E-05
+,backgrounds/deep_woods/WOODS - Third,-6E-05
+@endparallax
+@structure
+structure 1,100,StructurePrefab/arene 1,30
+structure 2,200,StructurePrefab/nextBiome,30
+@endstructure
+#plaine#
+10,26,7,58,15
+@terrain
+terrain,(,Layer_1
+tile,tiles/deep_woods/Tilesheet - WOODS_12,0,1000
+topTile,tiles/deep_woods/Tilesheet - WOODS_66,0,1000
+bottomDoubleEdgeTile,tiles/deep_woods/Tilesheet - WOODS_20,0,1000
+doubleEdgeTile,tiles/deep_woods/Tilesheet - WOODS_59,0,1000
+topDoubleEdgeTile,tiles/deep_woods/Tilesheet - WOODS_50,0,1000
+bottomLeftEdgeTile,tiles/deep_woods/Tilesheet - WOODS_21,0,1000
+leftEdgeTile,tiles/deep_woods/Tilesheet - WOODS_11,0,1000
+topLeftEdgeTile,tiles/deep_woods/Tilesheet - WOODS_65,0,1000
+bottomRightEdgeTile,tiles/deep_woods/Tilesheet - WOODS_20,0,1000
+rightEdgeTile,tiles/deep_woods/Tilesheet - WOODS_13,0,1000
+topRightEdgeTile,tiles/deep_woods/Tilesheet - WOODS_67,0,1000
+scaleTile,,0,1000
+)
+tree,(,Layer_3
+,,0,1000
+)
+grass,(,Layer_2
+,tiles/NatureTileMap/NatureTileMap_0,0,5
+,tiles/NatureTileMap/NatureTileMap_3,0,5
+,tiles/NatureTileMap/NatureTileMap_4,0,5
+,tiles/NatureTileMap/NatureTileMap_5,0,5
+,tiles/NatureTileMap/NatureTileMap_2,0,5
+,tiles/NatureTileMap/NatureTileMap_2,0,5
+)
+decors,(,Layer_2
+tauneau,tiles/VillageStuff/TX Village Props_92,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_316,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_24,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_26,0,1000
+)
+@endterrain
+@parallax
+,backgrounds/Free 2D Cartoon Parallax Background/!_Moutain/Layer_0,0
+,backgrounds/Free 2D Cartoon Parallax Background/!_Moutain/Layer_1,-0.0002
+,backgrounds/Free 2D Cartoon Parallax Background/!_Moutain/Layer_2,0.0002
+,backgrounds/Free 2D Cartoon Parallax Background/!_Moutain/Layer_3,0.0003
+@endparallax
+@structure
+structure 1,100,StructurePrefab/arene 1,30
+structure 2,150,StructurePrefab/arene 1,30
+structure 3,200,StructurePrefab/nextBiome,30
+@endstructure
+#desert#
+10,8,17,72,77
+@terrain
+terrain,(,Layer_1
+tile,tiles/Nature/Sand1,0,1000
+topTile,tiles/Nature/Sand6,0,1000
+bottomDoubleEdgeTile,tiles/Nature/Sand1,0,1000
+doubleEdgeTile,tiles/Nature/Sand15,0,1000
+topDoubleEdgeTile,tiles/Nature/Sand13,0,1000
+bottomLeftEdgeTile,tiles/Nature/Sand1,0,1000
+leftEdgeTile,tiles/Nature/Sand9,0,1000
+topLeftEdgeTile,tiles/Nature/Sand9,0,1000
+bottomRightEdgeTile,tiles/Nature/Sand1,0,1000
+rightEdgeTile,tiles/Nature/Sand7,0,1000
+topRightEdgeTile,tiles/Nature/Sand2,0,1000
+scaleTile,,0,1000
+)
+tree,(,Layer_3
+,,0,1000
+)
+grass,(,Layer_2
+,tiles/Nature/Cactus2,0,5
+,tiles/Nature/Cactus1,0,5
+,tiles/Nature/Cactus3,0,5
+,tiles/Nature/Cactus4,0,5
+,tiles/Nature/Tree16_1,0,5
+,tiles/NatureTileMap/NatureTileMap_2,0,5
+)
+decors,(,Layer_2
+tauneau,tiles/VillageStuff/TX Village Props_26,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_24,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_22,0,1000
+tauneau,tiles/VillageStuff/TX Village Props_23,0,1000
+)
+@endterrain
+@parallax
+,backgrounds/Free 2D Cartoon Parallax Background/2_Desert/Layer_0,0
+,backgrounds/Free 2D Cartoon Parallax Background/2_Desert/Layer_1,-0.0002
+,backgrounds/Free 2D Cartoon Parallax Background/2_Desert/Layer_2,0.0002
+,backgrounds/Free 2D Cartoon Parallax Background/2_Desert/Layer_3,0.0003
+@endparallax
+@structure
+structure 1,100,StructurePrefab/arene 1,30
+structure 2,150,StructurePrefab/arene 1,30
+structure 3,200,StructurePrefab/nextBiome,30
+@endstructure
+#mud#
+10,26,7,58,17
+@terrain
+terrain,(,Layer_1
+tile,tiles/deep_woods/Tilesheet - WOODS_12,0,1000
+topTile,tiles/deep_woods/Tilesheet - WOODS_1,0,1000
+bottomDoubleEdgeTile,tiles/deep_woods/Tilesheet - WOODS_12,0,1000
+doubleEdgeTile,tiles/deep_woods/Tilesheet - WOODS_59,0,1000
+topDoubleEdgeTile,tiles/deep_woods/Tilesheet - WOODS_50,0,1000
+bottomLeftEdgeTile,tiles/deep_woods/Tilesheet - WOODS_12,0,1000
+leftEdgeTile,tiles/deep_woods/Tilesheet - WOODS_11,0,1000
+topLeftEdgeTile,tiles/deep_woods/Tilesheet - WOODS_0,0,1000
+bottomRightEdgeTile,tiles/deep_woods/Tilesheet - WOODS_12,0,1000
+rightEdgeTile,tiles/deep_woods/Tilesheet - WOODS_13,0,1000
+topRightEdgeTile,tiles/deep_woods/Tilesheet - WOODS_2,0,1000
+scaleTile,,0,1000
+)
+tree,(,Layer_3
+,,0,1000
+)
+grass,(,Layer_2
+,tiles/cave/plant-1,0,1000
+,tiles/cave/plant-2,0,1000
+,tiles/cave/plant-3,0,1000
+,tiles/cave/plant-4,0,1000
+)
+decors,(,Layer_2
+tauneau,tiles/cave/rockblock-2-plant,0,1000
+tauneau,tiles/cave/rockblock-2,0,1000
+tauneau,tiles/cave/rockblock-4-plant-10,0,1000
+)
+@endterrain
+@parallax
+,backgrounds/Free 2D Cartoon Parallax Background/3_Graveyard/Layer_0,0
+,backgrounds/Free 2D Cartoon Parallax Background/!_Moutain/Layer_1,-0.0002
+,backgrounds/Free 2D Cartoon Parallax Background/3_Graveyard/Layer_2,0.0002
+,backgrounds/Free 2D Cartoon Parallax Background/3_Graveyard/Layer_3,0.0003
+@endparallax
+@structure
+structure 1,100,StructurePrefab/arene 1,30
+structure 2,200,StructurePrefab/arene 3,40
+structure 2,500,StructurePrefab/nextBiome,30
+@endstructure

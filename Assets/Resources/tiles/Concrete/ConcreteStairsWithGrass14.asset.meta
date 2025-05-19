@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 173cc84035a07c8468cf55f0f7c86e06
+timeCreated: 1552115947
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Concrete/ConcreteStairsWithGrass14.asset
+  uploadId: 302008

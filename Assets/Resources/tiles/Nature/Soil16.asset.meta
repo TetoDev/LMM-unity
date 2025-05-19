@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: aff56cb6d79aae54792054948b88562f
+timeCreated: 1552134126
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Soil16.asset
+  uploadId: 302008

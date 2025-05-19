@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: f3a5194f9f4acfd489957468c0ec633c
+timeCreated: 1552134961
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/GrassField4.asset
+  uploadId: 302008

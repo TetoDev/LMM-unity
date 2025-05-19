@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: a444d50332c264c43b2507e71aafb39b
+timeCreated: 1553574012
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Cloud5.asset
+  uploadId: 302008

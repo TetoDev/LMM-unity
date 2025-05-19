@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 42262e26181a0e040b977a8ad341cd37
+timeCreated: 1552134750
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Magma2.asset
+  uploadId: 302008

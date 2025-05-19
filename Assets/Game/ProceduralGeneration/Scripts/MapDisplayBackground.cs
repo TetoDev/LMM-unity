@@ -41,8 +41,9 @@ public class TBiome{
 	[Header("Warning Max 10 background")]
 	public List<TParallaxBackground> lstParallaxBackground = new List<TParallaxBackground>();
 	public List<lstDisplayElements> map = new List<lstDisplayElements>();
-	[Header("for the script, will change in play mode")]
+	[HideInInspector]
 	public bool isCompleted = false;
+	[HideInInspector]
 	public int spawnStructureHeight = 5;
 	
 }
@@ -54,6 +55,8 @@ public class Tstructures {
 	public GameObject prefab;
 	public int length = 0;
 	public string name = "null";
+	public bool structureIsCompleted = false;
+	public bool bossSpawned = false;
 
 	public bool HaveToBeDisplay(int cordWithOffset){
 		if (spawnCord == cordWithOffset){
@@ -64,7 +67,7 @@ public class Tstructures {
 	}
 
 	public bool IsSpawning(int cordWithOffset){
-		if (cordWithOffset - length / 2 < spawnCord && spawnCord < cordWithOffset + length / 2){
+		if (cordWithOffset - length / 2 < spawnCord && spawnCord < cordWithOffset + length){
 			return true;
 		}  else{
 			return false;
