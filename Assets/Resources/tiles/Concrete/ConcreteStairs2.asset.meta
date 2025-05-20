@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: d48c3c78dbebca7428ef2d8d349cae5e
+timeCreated: 1552114304
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Concrete/ConcreteStairs2.asset
+  uploadId: 302008

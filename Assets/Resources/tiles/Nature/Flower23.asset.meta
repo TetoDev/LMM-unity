@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 49a57896f0e16464e98eae87d473ebfa
+timeCreated: 1553574038
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Flower23.asset
+  uploadId: 302008

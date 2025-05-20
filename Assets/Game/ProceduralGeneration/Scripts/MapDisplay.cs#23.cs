@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MapDisplay : MonoBehaviour {
 
 	public GameObject StructureFolder;
+	public GameObject layers;
     public WorldUnitConvertion convertionSysteme;
 	public GameObject worldOrigin;
 
@@ -27,6 +28,7 @@ public class MapDisplay : MonoBehaviour {
 	int idGrass;
 	int idTree;
 	int idDecors;
+	int structureFlatZoneHeigth = 1;
 
 	Dictionary<string, int> IdTerrainTiles;
 
@@ -42,6 +44,7 @@ public class MapDisplay : MonoBehaviour {
 		IdTerrainTiles = saveAndLoad.BuildDicoIdTerrain(biome.name);
 
 		structureIsSpawning = false;
+		structureFlatZoneHeigth = biome.mapMaxHeight /2;
 
         GenerateMap();
 		
@@ -52,7 +55,7 @@ public class MapDisplay : MonoBehaviour {
 	}
 
 	public void GenerateMap() {
-		int[] noiseMap = Noise.GenerateNoiseMap (mapWidth, seed, biome.noiseScale, biome.mapMaxHeight, offsetX, biome);
+		int[] noiseMap = Noise.GenerateNoiseMap (mapWidth, seed, offsetX, biome, structureFlatZoneHeigth);
 		DrawMap(noiseMap);
 	}
 
@@ -67,7 +70,7 @@ public class MapDisplay : MonoBehaviour {
 			return id;
 		}
 
-		private int reacherIndexInLstOfThisElementType(List<displayElement> lst, String name){
+	private int reacherIndexInLstOfThisElementType(List<displayElement> lst, String name){
 			int id = -1;
 			for (int i = 0 ; i < lst.Count ; i++){
 				if (lst[i].name == name){
@@ -87,7 +90,7 @@ public class MapDisplay : MonoBehaviour {
 		for (int i = 0 ; i < biome.map.Count ; i ++){
 			biome.map[i].tilemap.ClearAllTiles();
 		}
-		if (Application.isPlaying){
+		if (Application.isPlaying && StructureFolder != null){
 			foreach (Transform structure in StructureFolder.transform)
 			{
 				GameObject.Destroy(structure.gameObject);
@@ -210,11 +213,14 @@ public class MapDisplay : MonoBehaviour {
 		void SetBuilding(Vector3Int position, int offsetX){
 			structureIsSpawning = false;
 			foreach (Tstructures structure in biome.lstStructures){
+				// spawn the structure
 				if (structure.HaveToBeDisplay(position.x) && Application.isPlaying){
+					structureIsSpawning = true;
 					Vector3 world = worldOrigin.transform.position;
-					float x = convertionSysteme.TileToWorld(position.x ) + world.x ;
-					GameObject temp = Instantiate(structure.prefab, new Vector3(x, -convertionSysteme.TileToWorld(biome.mapMaxHeight / 2) + StructureFolder.transform.localPosition.y + world.y, 0), Quaternion.identity, StructureFolder.transform);
-				} if (structure.IsSpawning(position.x)){
+					float x = convertionSysteme.TileToWorld(position.x ) + world.x - 3 * convertionSysteme.TileToWorld(structure.length) / 2;
+					GameObject temp = Instantiate(structure.prefab, new Vector3(x, structureFlatZoneHeigth - 0.5f + layers.transform.localPosition.y + world.y, 0), Quaternion.identity, StructureFolder.transform);
+					temp.name = structure.name;
+				} if (structure.IsSpawning(position.x)){ // avoid decors & grass
 					structureIsSpawning = true;
 				}
 			}

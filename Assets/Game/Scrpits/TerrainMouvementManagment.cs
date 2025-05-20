@@ -7,6 +7,7 @@ public class TerrainMouvementManagment : MonoBehaviour
 
     public GameObject worldOrigin;
     public GameObject target;
+	public GameObject layers;
 	public WorldUnitConvertion convertionSysteme;
 
     float previousPlayerPos = 0;
@@ -21,6 +22,8 @@ public class TerrainMouvementManagment : MonoBehaviour
     void Start()
     {
         mapDisplay.mapWidth = convertionSysteme.NbTilesToFillScreen(convertionSysteme.GetSizeTileInWorldDimentions());
+		convertionSysteme.ComputeOverFlowScreenDistance();
+		layers.transform.localPosition = new Vector3(layers.transform.localPosition.x - convertionSysteme.TileToWorld(convertionSysteme.overFlowScreenDistanceInTile / 2), layers.transform.localPosition.y, layers.transform.localPosition.z);
 		
 		if (target != null){
 			previousPlayerPos = target.transform.localPosition.x;

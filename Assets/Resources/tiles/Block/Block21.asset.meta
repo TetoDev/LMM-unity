@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 3bbce645e82b77047a4301668c5cacf7
+timeCreated: 1552113037
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Block/Block21.asset
+  uploadId: 302008

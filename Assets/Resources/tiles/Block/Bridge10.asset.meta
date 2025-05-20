@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: c8e6204f68d5901478d53e8dcc35790f
+timeCreated: 1552113450
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Block/Bridge10.asset
+  uploadId: 302008

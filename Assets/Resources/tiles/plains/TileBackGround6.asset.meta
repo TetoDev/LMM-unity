@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e2355d69bf04a9d409ee120652413d83
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 255002
+  packageName: 2D Pixel Art Platformer | Biome - Plains
+  packageVersion: 1.0
+  assetPath: Assets/2D Pixel Art Platformer Biome - Plains/Tilemap/TileBackGround6.asset
+  uploadId: 589272

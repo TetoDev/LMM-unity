@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 4769888fd1d77ce46a9adc98f145b83a
+timeCreated: 1553574011
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Cactus1.asset
+  uploadId: 302008

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: fd47a67b8f874aa4199754c0b2d6ce25
+timeCreated: 1552117136
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Others/Pipe4.asset
+  uploadId: 302008

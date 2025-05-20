@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: efae1c9a7b88c0f48a3412a0e90f6d8c
+timeCreated: 1552320490
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Soil38.asset
+  uploadId: 302008

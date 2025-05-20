@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: e0cc5a61f707f1d419e9d7755581d48c
+timeCreated: 1553574027
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Concrete/ConcreteSlopeWithGrass97.asset
+  uploadId: 302008

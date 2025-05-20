@@ -4,13 +4,21 @@ using UnityEngine.Tilemaps;
 public class WorldUnitConvertion : MonoBehaviour
 {
     public MapDisplay mapDisplay;
-    public int overFlowScreenDistanceInTile = 4;
+    public int overFlowScreenDistanceInTile = 1;
     int idTerrain;
     float tileSizeInWorld;
 
     void Start(){
         idTerrain = mapDisplay.GetIdTerrain();
         tileSizeInWorld = GetSizeTileInWorldDimentions();
+    }
+
+    public void ComputeOverFlowScreenDistance(){
+        foreach (Tstructures structure in mapDisplay.biome.lstStructures){
+            if ( structure.length > overFlowScreenDistanceInTile){
+                overFlowScreenDistanceInTile = 2 * structure.length;
+            }
+        }
     }
 
     public float TileToWorld(int nbTile){
@@ -24,13 +32,13 @@ public class WorldUnitConvertion : MonoBehaviour
 		BoundsInt bounds = tilemap.cellBounds;
 		Vector3Int cellPosition = new Vector3Int(bounds.xMin, bounds.yMin, 0);
 		Vector3 worldPositionLeftTile = tilemap.CellToWorld(cellPosition);
-        return worldPositionLeftTile.x;
+        return worldPositionLeftTile.x + overFlowScreenDistanceInTile / 2;
     }
 
     public float GetDistanceTerrainToLeftEdgeScreen(){
 		Vector3 worldLeftEdge = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
 
-		float distance = GetLeftTerrainEdge() - worldLeftEdge.x;
+		float distance = GetLeftTerrainEdge() - 1 - worldLeftEdge.x;
 
 		return distance;
 

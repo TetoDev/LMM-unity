@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 0d3b77c867d91234180cdbabba913878
+timeCreated: 1552116651
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Waterfall7.asset
+  uploadId: 302008

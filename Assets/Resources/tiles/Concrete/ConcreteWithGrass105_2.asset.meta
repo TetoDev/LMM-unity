@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 89473cc6e4e721b4c81541b2474b70e3
+timeCreated: 1552120666
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Concrete/ConcreteWithGrass105_2.asset
+  uploadId: 302008

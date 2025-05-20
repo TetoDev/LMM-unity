@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 640ff47d09a5fea4f8fd38cf644bed79
+timeCreated: 1553574041
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 141838
+  packageName: Pixel Tiles For Side Scroller
+  packageVersion: 2.0.0
+  assetPath: Assets/PixelTilesForSideScroller/TileAssets/Nature/Ice3.asset
+  uploadId: 302008
