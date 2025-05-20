@@ -56,7 +56,7 @@ public class GameParallax : MonoBehaviour
             mouveParallaxBg = true;
         }
         
-        if (mouveParallaxBg){
+        if (mouveParallaxBg && target != null){
             offset += Input.GetAxis("Horizontal") * speed;
             GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
             previousPlayerPos = target.transform.localPosition.x;

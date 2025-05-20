@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using System.Globalization;
 using UnityEditor;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Threading.Tasks;
 
 public class SaveAndLoad : MonoBehaviour
@@ -360,10 +358,42 @@ public class SaveAndLoad : MonoBehaviour
         return int.Parse(GetFileContent(filePathSeep)[0].Split(',')[0]);
     }
 
+    private string ConvertTimeToUniversalTime(float bestRecord){
+        string bestRecordText = "";
+        float nbHours = 0f;
+        float nbMinutes = 0f;
+        float nbSeconds = 0f;
+         // Convert the best record in s to a format 1h 3 mins 5.25s
+        if (bestRecord / 3600f >= 1f)
+        {
+            nbHours = Mathf.Floor(bestRecord / 3600f);
+            bestRecordText += $"{nbHours}h ";
+        }
+
+        if ((bestRecord - nbHours * 3600f) / 60f >= 1f)
+        {
+            nbMinutes = Mathf.Floor((bestRecord - nbHours * 3600f) / 60f);
+            bestRecordText += $"{nbMinutes}min ";
+        }
+
+        nbSeconds = bestRecord - nbHours * 3600f - nbMinutes * 60f;
+        if (nbSeconds > 0f || bestRecordText == "")
+        {
+            bestRecordText += $"{nbSeconds:F2}s";
+        }
+        return bestRecordText;
+
+    }
+
     public void SaveRecord(float recordInS){
         List<string> listRecords = GetFileContent(filePathRecord);
         listRecords.Add(recordInS.ToString(CultureInfo.InvariantCulture));
         File.WriteAllLines(filePathRecord, listRecords);
+    }
+
+    public string GetLastTime(){
+        List<string> listRecords = GetFileContent(filePathRecord);
+        return ConvertTimeToUniversalTime(float.Parse(listRecords[listRecords.Count - 1], CultureInfo.InvariantCulture));
     }
 
     public string GetBestRecord(){
@@ -373,37 +403,14 @@ public class SaveAndLoad : MonoBehaviour
 
         if (listRecords.Count > 0){
                 float bestRecord = float.MaxValue;
-            float nbHours = 0f;
-            float nbMinutes = 0f;
-            float nbSeconds = 0f;
-            string bestRecordText = "";
+
             foreach(string record in listRecords){
                 float tempRecord = float.Parse(record, CultureInfo.InvariantCulture);
                 if (tempRecord < bestRecord){
                     bestRecord = tempRecord;
                 }
-            }
-
-            // Convert the best record in s to a format 1h 3 mins 5.25s
-            if (bestRecord / 3600f >= 1f)
-            {
-                nbHours = Mathf.Floor(bestRecord / 3600f);
-                bestRecordText += $"{nbHours}h ";
-            }
-
-            if ((bestRecord - nbHours * 3600f) / 60f >= 1f)
-            {
-                nbMinutes = Mathf.Floor((bestRecord - nbHours * 3600f) / 60f);
-                bestRecordText += $"{nbMinutes}min ";
-            }
-
-            nbSeconds = bestRecord - nbHours * 3600f - nbMinutes * 60f;
-            if (nbSeconds > 0f || bestRecordText == "")
-            {
-                bestRecordText += $"{nbSeconds:F2}s";
-            }
-
-            return bestRecordText;
+            }           
+            return ConvertTimeToUniversalTime(bestRecord);
         } else {
             return "Play to set a record";
         }

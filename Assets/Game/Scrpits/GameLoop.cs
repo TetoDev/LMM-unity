@@ -13,6 +13,7 @@ public class GameLoop : MonoBehaviour
     public int playerOffset = 7;
 
     List<string> gameBiomeList;
+    PlayerMovement scriptPlayer;
 
     bool GameIsCompleted = false;
     int seed = 0;
@@ -25,6 +26,8 @@ public class GameLoop : MonoBehaviour
         Vector3 tempPlayerPos = player.transform.position;
         player.transform.position = new Vector3(playerOffset, tempPlayerPos.y + mapDisplay.biome.mapMaxHeight, tempPlayerPos.z);
         
+        scriptPlayer = player.GetComponent<PlayerMovement>();
+
         seed = saveAndLoad.GetSeed();
         mapDisplay.seed = seed;
         
@@ -32,6 +35,7 @@ public class GameLoop : MonoBehaviour
         gameBiomeList = gameBiomeList.GetRange(0, Mathf.Min(nbBiomeOfAGame, gameBiomeList.Count));
         mapDisplay.biome = saveAndLoad.Load(gameBiomeList[biomeCounter - 1]);
         biomeCounter += 1;
+
     }
 
     // Update is called once per frame
@@ -49,9 +53,9 @@ public class GameLoop : MonoBehaviour
             GameIsCompleted = true;
         }
 
-        if (GameIsCompleted){
+        if (GameIsCompleted || scriptPlayer.GetHealth() <= 0){
             EndGame();
-        } else{
+        }else{
             // compute the duration of the run 
             gameTimer += Time.deltaTime;
         }
@@ -73,7 +77,12 @@ public class GameLoop : MonoBehaviour
     }
 
     private void EndGame(){
-        saveAndLoad.SaveRecord(gameTimer);
-        SceneManager.LoadScene("SceneMenu");
+        if(scriptPlayer.GetHealth() > 0){
+            saveAndLoad.SaveRecord(gameTimer);
+            SceneManager.LoadScene("SceneMenuWin");
+        } else{
+            SceneManager.LoadScene("SceneMenuLoose");
+        }
+        
     }
 }

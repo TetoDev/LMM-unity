@@ -14,12 +14,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scene/SceneGame.unity
     guid: a0a852c4d8d970a4c87948b113b85efa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Menu/Scene/SceneMenuPlay.unity
     guid: 3d46da7b6cbe6bb4f87c54ba353b593a
   - enabled: 1
     path: Assets/Menu/Scene/SceneTerrainMenu.unity
     guid: f9b47a597f4c9144b841cf47b80c85ec
+  - enabled: 1
+    path: Assets/Menu/Scene/SceneMenuWin.unity
+    guid: a22947c6ac1ee9446a717502b9d46cb2
+  - enabled: 1
+    path: Assets/Menu/Scene/SceneMenuLoose.unity
+    guid: da86c5156381aae48b41c41e7d3eb670
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
