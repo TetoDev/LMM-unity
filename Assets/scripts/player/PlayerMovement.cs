@@ -77,14 +77,6 @@ public class PlayerMovement : MonoBehaviour
             hit = false; // Reset hit state after cooldown
         }
 
-        // Dashing logic
-        if (dash) // Check if dash is available
-        {
-
-            Vector2 dashDirection = new Vector2( mousePos.x - rb.position.x, mousePos.y - rb.position.y ); // Dash in the initial direction
-            rb.AddForce(dashDirection.normalized * speed * 100f, ForceMode2D.Impulse); // Apply dash force
-            return;
-        } 
 
         if (move)
         {
@@ -95,9 +87,19 @@ public class PlayerMovement : MonoBehaviour
 
             rb.AddForce(movement * Vector2.right, ForceMode2D.Impulse); // Apply force to the player
         }
+        
+        // Dashing logic
+        if (dash) // Check if dash is available
+        {
+
+            Vector2 dashDirection = new Vector2( mousePos.x - rb.position.x, mousePos.y - rb.position.y ); // Dash in the initial direction
+            rb.AddForce(dashDirection.normalized * speed * 100f, ForceMode2D.Impulse); // Apply dash force
+            return;
+        } 
 
         //Friction logic
-        if (groundCheck.GetLastGroundedTime() > 0f && !move) {
+        if (groundCheck.GetLastGroundedTime() > 0f && !move && !dash)
+        {
             float amount = Mathf.Min(Mathf.Abs(rb.linearVelocityX), Mathf.Abs(frictionAmount));
             amount *= Mathf.Sign(rb.linearVelocity.x); // Get the sign of the velocity
             rb.AddForce(-amount * Vector2.right, ForceMode2D.Impulse); // Apply friction force to the player
