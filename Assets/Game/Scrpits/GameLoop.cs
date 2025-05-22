@@ -29,7 +29,6 @@ public class GameLoop : MonoBehaviour
         string tempBiome;
         for(int i = 0 ; i < nbBiome ; i++){
             tempBiome = lst[prng.Next (0, lst.Count)];
-            Debug.Log(tempBiome);
             res.Add(tempBiome);
             lst.Remove(tempBiome);
         }
@@ -52,7 +51,6 @@ public class GameLoop : MonoBehaviour
         gameBiomeList = ShufflePseudoRandom(saveAndLoad.LstBiome(), seed);
         gameBiomeList = gameBiomeList.GetRange(0, Mathf.Min(nbBiomeOfAGame, gameBiomeList.Count));
         mapDisplay.biome = saveAndLoad.Load(gameBiomeList[biomeCounter - 1]);
-        biomeCounter += 1;
 
         // we instantiate spwaning system
         GameObject newEnemy = Instantiate(mapDisplay.biome.spawnEnemisManager, new Vector3(0,0,0), Quaternion.identity, manager.transform);

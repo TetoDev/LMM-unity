@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 using System.Globalization;
 using UnityEditor;
 using System.Threading.Tasks;
-
+using UnityEditor;
 public class SaveAndLoad : MonoBehaviour
 {
     string filePathTerrainData => Application.persistentDataPath + "terrain.csv";
@@ -74,7 +74,13 @@ public class SaveAndLoad : MonoBehaviour
         return biomeLines;
     }
 
+<<<<<<< Updated upstream
     private List<string> BiomeToStr(TBiome biome){
+=======
+    
+    private List<string> BiomeToStr(TBiome biome)
+    {
+>>>>>>> Stashed changes
         string FindTilePath(string rootFolder, string tileName)
         {
             // Cherche tous les fichiers dans rootFolder et sous-dossiers
@@ -144,6 +150,10 @@ public class SaveAndLoad : MonoBehaviour
         return lstBiome;
     }
 
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
     public void Save(TBiome biomeToSave)
     {
         List<string> fileContent = new List<string>{};
@@ -169,6 +179,10 @@ public class SaveAndLoad : MonoBehaviour
         }
         File.WriteAllLines(filePathTerrainData, fileContent);
     }
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
     public Dictionary<string, int> BuildDicoIdTerrain(string biomeName){
 
 		Dictionary<string, int> IdTerrainTiles = new Dictionary<string, int>{};
