@@ -13,6 +13,7 @@ public class WorldUnitConvertion : MonoBehaviour
         tileSizeInWorld = GetSizeTileInWorldDimentions();
     }
 
+    // compute how much terrain we have to display out of the screen
     public void ComputeOverFlowScreenDistance(){
         foreach (Tstructures structure in mapDisplay.biome.lstStructures){
             if ( structure.length > overFlowScreenDistanceInTile){
@@ -21,10 +22,12 @@ public class WorldUnitConvertion : MonoBehaviour
         }
     }
 
+    // concert tile unit to world unit
     public float TileToWorld(int nbTile){
         return tileSizeInWorld * nbTile;
     }
 
+    // compute the position of the left edge of the terrain taking into account the overflow distance 
     public float GetLeftTerrainEdge(){
         Tilemap tilemap = mapDisplay.biome.map[idTerrain].tilemap;
 		// update bounds
@@ -35,6 +38,7 @@ public class WorldUnitConvertion : MonoBehaviour
         return worldPositionLeftTile.x + overFlowScreenDistanceInTile / 2;
     }
 
+    // compute the distance betwen the terrain and the left edge screen taking into account the overflow distance 
     public float GetDistanceTerrainToLeftEdgeScreen(){
 		Vector3 worldLeftEdge = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
 
@@ -44,6 +48,7 @@ public class WorldUnitConvertion : MonoBehaviour
 
 	}
 
+    // compute the size of a tile in world 
 	public float GetSizeTileInWorldDimentions(){
         Tilemap tilemap = mapDisplay.biome.map[idTerrain].tilemap;
         Grid grid = tilemap.layoutGrid;

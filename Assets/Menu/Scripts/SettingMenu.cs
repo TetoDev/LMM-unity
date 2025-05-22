@@ -14,11 +14,12 @@ public class SettingMenu : MonoBehaviour
 
     public void Start(){
 
+        // compute avilaible resolutions
         resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height}).Distinct().ToArray();
         resolutionDropdown.ClearOptions();
 
+        // preparation of a list of the differents options
         List<string> options = new List <string>{};
-
         int currentResolutionIndex = 0;
         for (int i = 0 ; i < resolutions.Length ; i++){
             string option = resolutions[i].width + "x" + resolutions[i].height;

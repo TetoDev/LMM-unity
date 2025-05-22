@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class SpawnEnemisManager : MonoBehaviour
 {
-    public MapDisplay mapDisplay;
     public List<TSpawnEnemis> lstEnemis;
-    public GameObject worldOrigin;
-    public GameObject enemisFolder;
-    public WorldUnitConvertion convertionSysteme;
-
+    private MapDisplay mapDisplay;
+    private GameObject worldOrigin;
+    private GameObject enemisFolder;
+    private WorldUnitConvertion convertionSysteme;
+    
     Dictionary<Vector3, GameObject> enemiAlreadySpawnVectGO = new Dictionary<Vector3, GameObject>();
     Dictionary<GameObject, Vector3> enemiAlreadySpawnGOVect = new Dictionary<GameObject, Vector3>();
 
@@ -18,13 +18,35 @@ public class SpawnEnemisManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // get componants we need
+        Transform manager = GameObject.Find("Manager").transform;
+        GameObject mapDisplayGO = manager.Find("MapDisplay").gameObject;
+        mapDisplay = mapDisplayGO.GetComponent<MapDisplay>();
+
+        worldOrigin = GameObject.Find("WorldOrigin");
+        Transform layers = worldOrigin.transform.Find("Layers");
+        enemisFolder = layers.Find("SrcutureFolder").gameObject;
+
+        GameObject convertionSystemeGO = GameObject.Find("ConvertionSysteme").gameObject;
+        convertionSysteme = convertionSystemeGO.GetComponent<WorldUnitConvertion>();
+
         previousMapWidth = mapDisplay.mapWidth;
         previousOffset = mapDisplay.offsetX;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        // get componants we need
+        Transform manager = GameObject.Find("Manager").transform;
+        GameObject mapDisplayGO = manager.Find("MapDisplay").gameObject;
+        mapDisplay = mapDisplayGO.GetComponent<MapDisplay>();
+
+        worldOrigin = GameObject.Find("WorldOrigin");
+        enemisFolder = worldOrigin.transform.Find("Enemis").gameObject;
+
+        GameObject convertionSystemeGO = GameObject.Find("ConvertionSysteme").gameObject;
+        convertionSysteme = convertionSystemeGO.GetComponent<WorldUnitConvertion>();
         if (!mapDisplay.structureIsSpawning){
 
             // if there is a terrain mouvement
@@ -34,19 +56,21 @@ public class SpawnEnemisManager : MonoBehaviour
             } else if (mapDisplay.offsetX != previousOffset){
                 Spawn(mapDisplay.offsetX - previousOffset);
                 previousOffset = mapDisplay.offsetX;
+                Debug.Log("new spawn");
             }
             
         }
     }
 
     private void Spawn(int spawnLenthInTiles, bool reset = false) {
-
+            
             void DisplayInWorld(Vector3 position, TSpawnEnemis enemi){
                 // if the enemi is not spawn he spawn
                 if (!enemiAlreadySpawnVectGO.ContainsKey(position)) {
                     GameObject newEnemy = Instantiate(enemi.prefab, position, Quaternion.identity, enemisFolder.transform);
                     enemiAlreadySpawnVectGO[position] = newEnemy;
                     enemiAlreadySpawnGOVect[newEnemy] = position;
+                    Debug.Log($"instantiate {newEnemy.name}");
                 }   
             }
 
@@ -55,6 +79,7 @@ public class SpawnEnemisManager : MonoBehaviour
                 foreach (Transform child in enemisFolder.transform)
                     {
                         GameObject.Destroy(child.gameObject);
+                        Debug.Log($"destroy {child.gameObject.name}");
                     }
             } else{
 
@@ -67,6 +92,8 @@ public class SpawnEnemisManager : MonoBehaviour
                                 enemiAlreadySpawnVectGO.Remove(enemiAlreadySpawnGOVect[child.gameObject]);
                                 enemiAlreadySpawnGOVect.Remove(child.gameObject);
                                 GameObject.Destroy(child.gameObject);
+                                Debug.Log($"destroy {child.gameObject.name}");
+                                
                             }
                             
                         }
@@ -78,18 +105,20 @@ public class SpawnEnemisManager : MonoBehaviour
             // spawner system
             Vector3 position;
             for (int x = 0; x < Mathf.Abs(spawnLenthInTiles); x++){
+                int id = 0;
                 foreach (TSpawnEnemis enemi in lstEnemis){
                     // tow spawn systemes : one if the player is walking forward and one if he is walking backward
                     // x are compute in a way that they don't spawn in the screen
                     int xForwardSpawnPos = mapDisplay.offsetX + mapDisplay.mapWidth - x  - convertionSysteme.overFlowScreenDistanceInTile;
                     int xBackwardSpawnPos = mapDisplay.offsetX + x - 3 * convertionSysteme.overFlowScreenDistanceInTile / 4;
-                    if (spawnLenthInTiles >= 0 && enemi.ShouldSpawn(mapDisplay.seed, xForwardSpawnPos)){
+                    if (spawnLenthInTiles >= 0 && enemi.ShouldSpawn(mapDisplay.seed, xForwardSpawnPos, id)){
                         position = new Vector3(convertionSysteme.TileToWorld(xForwardSpawnPos) , mapDisplay.biome.mapMaxHeight + worldOrigin.transform.localPosition.y, 0);
                         DisplayInWorld(position, enemi);
-                    } else if ( enemi.ShouldSpawn(mapDisplay.seed, xBackwardSpawnPos)){
+                    } else if ( enemi.ShouldSpawn(mapDisplay.seed, xBackwardSpawnPos, id)){
                         position = new Vector3(convertionSysteme.TileToWorld(xBackwardSpawnPos) , mapDisplay.biome.mapMaxHeight + worldOrigin.transform.localPosition.y, 0);
                         DisplayInWorld(position, enemi);
                     }
+                    id += 1;
                 }
             }
     }
@@ -103,9 +132,9 @@ public class TSpawnEnemis {
     [Range(0, 1000)] 
 	public int proba;
 
-    public bool ShouldSpawn(int seed, int x){
+    public bool ShouldSpawn(int seed, int x, int id){
         if (proba != null){
-            System.Random prng = new System.Random(seed + x);
+            System.Random prng = new System.Random(seed + x + id);
             float offsetX = prng.Next(0, 1000);
             if (offsetX < proba){
                 return true;

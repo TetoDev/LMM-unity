@@ -9,7 +9,7 @@ public static class Noise {
 		bool[] flatZone = new bool[mapWidth];
 		float[] stairsWeight = new float[mapWidth];
 
-		// tag flat zone and stairs
+		// tag flat zone and stairs / leveling off
 		foreach (Tstructures structure in biome.lstStructures)
 		{
 			int localStartPos = structure.spawnCord - tempOffsetX - structure.length / 2;
@@ -45,6 +45,7 @@ public static class Noise {
 			if (flatZone[x]) {
 				noiseMap[x] = flatHeight;
 			} else if (stairsWeight[x] > 0f) { // Leveling off
+				// use of lepr to have the right height betwen (rawPerlin, flatHeight) with the weight 
 				noiseMap[x] = Mathf.RoundToInt(Mathf.Lerp(rawPerlin, flatHeight, stairsWeight[x]));
 			} else {
 				noiseMap[x] = rawPerlin;

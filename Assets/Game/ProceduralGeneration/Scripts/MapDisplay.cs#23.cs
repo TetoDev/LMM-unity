@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MapDisplay : MonoBehaviour {
 
-	public GameObject StructureFolder;
-	public GameObject layers;
+	public GameObject StructureFolder; // where the structure will be instanciate 
+	public GameObject layers; // contains all components related to the terrain
     public WorldUnitConvertion convertionSysteme;
-	public GameObject worldOrigin;
+	public GameObject worldOrigin; // contain all world game object
 
 	public int mapWidth;
 
@@ -23,21 +23,19 @@ public class MapDisplay : MonoBehaviour {
 	public SaveAndLoad saveAndLoad;
 
 	// find the id of the tile in the list List<displayElement> to assotiate it with a string key
-	int idTerrain;
-	int idStructures;
-	int idGrass;
-	int idTree;
-	int idDecors;
-	int structureFlatZoneHeigth = 1;
+	private int idTerrain;
+	private int idGrass;
+	private int idTree;
+	private int idDecors;
+	private int structureFlatZoneHeigth = 1;
 
-	Dictionary<string, int> IdTerrainTiles;
+	private Dictionary<string, int> IdTerrainTiles;
 
 	public bool structureIsSpawning = false;
 
 	public void Start(){
 		// find the id of the tile in the list List<displayElement> to assotiate it with a string key
 		idTerrain = reacherIndexInBiome("terrain");
-		idStructures = reacherIndexInBiome("structures");
 		idGrass = reacherIndexInBiome("grass");
 		idTree = reacherIndexInBiome("tree");
 		idDecors = reacherIndexInBiome("decors");
@@ -52,11 +50,6 @@ public class MapDisplay : MonoBehaviour {
 
 	public int GetIdTerrain(){
 		return idTerrain;
-	}
-
-	public void GenerateMap() {
-		int[] noiseMap = Noise.GenerateNoiseMap (mapWidth, seed, offsetX, biome, structureFlatZoneHeigth);
-		DrawMap(noiseMap);
 	}
 
 	private int reacherIndexInBiome(String name){
@@ -81,12 +74,21 @@ public class MapDisplay : MonoBehaviour {
 			return id;
 		}
 
+	// generate a noise map ( a list of height ) and color it with tiles
+	public void GenerateMap() {
+		int[] noiseMap = Noise.GenerateNoiseMap (mapWidth, seed, offsetX, biome, structureFlatZoneHeigth);
+		DrawMap(noiseMap);
+	}
+
+	// color the map with tile structurs decors grass ...
 	private void DrawMap(int[] noiseMap){
 		
+		// use to compute wath kind of tile we need to place to color the map in the right way
 		int previousHeight = noiseMap[0];
 		int currentHeight = noiseMap[1];
 		int nextHeight = noiseMap[2];
 		
+		// clear the terrain 
 		for (int i = 0 ; i < biome.map.Count ; i ++){
 			biome.map[i].tilemap.ClearAllTiles();
 		}
@@ -97,17 +99,10 @@ public class MapDisplay : MonoBehaviour {
 			}
 		}
 
+		// methodes use to color the terrain depending of the position (x,y)
 		bool ShouldDrawScale(int prev, int curr) {
 			return (Math.Abs(prev - curr) >= 2) && idTerrain >= 0;
 		} 
-
-		/*void int CountTileAtTheSameHeight(Vector3Int position ; int height = position.x){
-			x = 0;
-			while (noiseMap[x] == height){
-				x += 1
-			}
-			return x
-		}*/
 
 		void SetTile(Vector3Int position, int idLstDisplay, int idElInLstDisplay, bool drawScale = false)
 		{	
@@ -217,25 +212,27 @@ public class MapDisplay : MonoBehaviour {
 				if (structure.HaveToBeDisplay(position.x) && Application.isPlaying){
 					structureIsSpawning = true;
 					Vector3 world = worldOrigin.transform.position;
-					float x = convertionSysteme.TileToWorld(position.x ) + world.x - 3 * convertionSysteme.TileToWorld(structure.length) / 2;
-					GameObject temp = Instantiate(structure.prefab, new Vector3(x, structureFlatZoneHeigth - 0.5f + layers.transform.localPosition.y + world.y, 0), Quaternion.identity, StructureFolder.transform);
-					temp.name = structure.name;
+					structure.codeSpawnCord = convertionSysteme.TileToWorld(position.x ) + world.x - 3 * convertionSysteme.TileToWorld(structure.length) / 2;
+					GameObject temp = Instantiate(structure.prefab, new Vector3(structure.codeSpawnCord, structureFlatZoneHeigth - 0.5f + layers.transform.localPosition.y + world.y, 0), Quaternion.identity, StructureFolder.transform);
+					temp.name = structure.prefab.name;
 				} if (structure.IsSpawning(position.x)){ // avoid decors & grass
 					structureIsSpawning = true;
 				}
 			}
 		}
 
+		// main loop who brwose noise map list
 		for (int x = 2; x < mapWidth - 1; x++)
 		{
 			int max = Math.Max(previousHeight, nextHeight);
 			int min = Math.Min(previousHeight, nextHeight);
 			bool drawScale = ShouldDrawScale(previousHeight, currentHeight);
-			// random numbre for evry x and evry seed
-			// place les décors :
+
 			Vector3Int position = new Vector3Int(x + offsetX, currentHeight, 0);
 			SetDecor(position, x);
 			SetBuilding(position, offsetX);
+			
+			// place the tiles one by one 
 			for (int y = 0; y < currentHeight; y++)
 			{
 				SetTerrain(x, y, drawScale, min, max);
