@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6355764796480817506}
   - component: {fileID: 1393900245187358226}
   - component: {fileID: 6099719877154495945}
+  - component: {fileID: 632678095980348801}
   m_Layer: 8
   m_Name: FlyingEye
   m_TagString: Untagged
@@ -280,6 +281,19 @@ MonoBehaviour:
   attackSound: {fileID: 0}
   deathSound: {fileID: 8300000, guid: ad3e09d40b6db174287745cbca6c0520, type: 3}
   hitSound: {fileID: 8300000, guid: c7be8baf7a871df44b4a7cf531467543, type: 3}
+--- !u!114 &632678095980348801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016642528539978051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 480583e5b10c144458e03ed1f180e559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blood: {fileID: 0}
 --- !u!1 &4595386701923974744
 GameObject:
   m_ObjectHideFlags: 0

@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 4856184486217401185}
   - component: {fileID: 168246807178947088}
   - component: {fileID: -2029451911541044923}
+  - component: {fileID: -820849070272351771}
   m_Layer: 8
   m_Name: KnightEnemy
   m_TagString: Untagged
@@ -413,3 +414,16 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 05a3defd4bd5f17489cd77b9ea82030f, type: 3}
   deathSound: {fileID: 8300000, guid: 96a090670803c9b47945b676a1749acd, type: 3}
   hitSound: {fileID: 8300000, guid: a9e150aab4f67a748b4b74dd3aaf82c5, type: 3}
+--- !u!114 &-820849070272351771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4937786427740948376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 480583e5b10c144458e03ed1f180e559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blood: {fileID: 7667329238755739323, guid: 83d118d28d3922b4bad34faf743b8ab8, type: 3}
