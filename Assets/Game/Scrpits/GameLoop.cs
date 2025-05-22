@@ -9,6 +9,7 @@ public class GameLoop : MonoBehaviour
     public MapDisplay mapDisplay;
     public WorldUnitConvertion convertionSysteme;
     public GameObject player;
+    public GameObject manager;
     public int nbBiomeOfAGame = 4;
     public int playerOffset = 7;
 
@@ -20,9 +21,25 @@ public class GameLoop : MonoBehaviour
     float gameTimer = 0;
     int biomeCounter = 1;
 
+    // Shuffle the elements of a list of string 
+    private List<string> ShufflePseudoRandom(List<string> lst, int seed){
+        System.Random prng = new System.Random (seed);
+        List<string> res = new List<string>();
+        int nbBiome = lst.Count;
+        string tempBiome;
+        for(int i = 0 ; i < nbBiome ; i++){
+            tempBiome = lst[prng.Next (0, lst.Count)];
+            Debug.Log(tempBiome);
+            res.Add(tempBiome);
+            lst.Remove(tempBiome);
+        }
+        return res;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // we place the player in the right place of the screen
         Vector3 tempPlayerPos = player.transform.position;
         player.transform.position = new Vector3(playerOffset, tempPlayerPos.y + mapDisplay.biome.mapMaxHeight, tempPlayerPos.z);
         
@@ -31,19 +48,25 @@ public class GameLoop : MonoBehaviour
         seed = saveAndLoad.GetSeed();
         mapDisplay.seed = seed;
         
+        // we create the list of the different biome of the game using pseudo random and seep
         gameBiomeList = ShufflePseudoRandom(saveAndLoad.LstBiome(), seed);
         gameBiomeList = gameBiomeList.GetRange(0, Mathf.Min(nbBiomeOfAGame, gameBiomeList.Count));
         mapDisplay.biome = saveAndLoad.Load(gameBiomeList[biomeCounter - 1]);
         biomeCounter += 1;
+
+        // we instantiate spwaning system
+        GameObject newEnemy = Instantiate(mapDisplay.biome.spawnEnemisManager, new Vector3(0,0,0), Quaternion.identity, manager.transform);
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        // change the biome and place the player in the screen 
         if (mapDisplay.biome.isCompleted && biomeCounter <= gameBiomeList.Count){
             mapDisplay.biome = saveAndLoad.Load(gameBiomeList[biomeCounter - 1]);
-            mapDisplay.GenerateMap();
+
             Vector3 tempPlayerPos = player.transform.position;
             player.transform.position = new Vector3(playerOffset, tempPlayerPos.y + mapDisplay.biome.mapMaxHeight, tempPlayerPos.z);
             biomeCounter += 1;
@@ -61,21 +84,7 @@ public class GameLoop : MonoBehaviour
         }
     }
 
-    // Shuffle the elements of a list of string 
-    private List<string> ShufflePseudoRandom(List<string> lst, int seed){
-        System.Random prng = new System.Random (seed);
-        List<string> res = new List<string>();
-        int nbBiome = lst.Count;
-        string tempBiome;
-        for(int i = 0 ; i < nbBiome ; i++){
-            tempBiome = lst[prng.Next (0, lst.Count)];
-            Debug.Log(tempBiome);
-            res.Add(tempBiome);
-            lst.Remove(tempBiome);
-        }
-        return res;
-    }
-
+    // direct the user in the appropriate scene
     private void EndGame(){
         if(scriptPlayer.GetHealth() > 0){
             saveAndLoad.SaveRecord(gameTimer);

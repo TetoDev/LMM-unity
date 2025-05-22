@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         } 
 
         //Friction logic
-        if (groundCheck.GetLastGroundedTime() > 0f && !move && !dash)
+        if (groundCheck.GetLastGroundedTime() > 0f && !move && !(Time.time - dashStartTime > dashCooldown))
         {
             float amount = Mathf.Min(Mathf.Abs(rb.linearVelocityX), Mathf.Abs(frictionAmount));
             amount *= Mathf.Sign(rb.linearVelocity.x); // Get the sign of the velocity

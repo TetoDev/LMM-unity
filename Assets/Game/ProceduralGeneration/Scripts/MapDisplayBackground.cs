@@ -5,10 +5,10 @@ using System;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public class displayElement {
+public class displayElement { // tile with his settings
 	public string name = "test";
 	public TileBase tile;
-	public int minHeight = 0;
+	public int minHeight = 0; // higher tile will not be display
 	public int maxHeight = 1000;
 }
 
@@ -37,15 +37,13 @@ public class TBiome{
 	public int probaTree = 20;
 	[Range(0, 100)] 
 	public int probaGrass = 60;
+	public GameObject spawnEnemisManager;
 	public List<Tstructures> lstStructures = new List<Tstructures>();  
 	[Header("Warning Max 10 background")]
 	public List<TParallaxBackground> lstParallaxBackground = new List<TParallaxBackground>();
 	public List<lstDisplayElements> map = new List<lstDisplayElements>();
 	[HideInInspector]
 	public bool isCompleted = false;
-	[HideInInspector]
-	public int spawnStructureHeight = 5;
-	
 }
 
 [System.Serializable]
@@ -55,8 +53,12 @@ public class Tstructures {
 	public GameObject prefab;
 	public int length = 0;
 	public string name = "null";
+	[HideInInspector]
 	public bool structureIsCompleted = false;
+	[HideInInspector]
 	public bool bossSpawned = false;
+	[HideInInspector]
+	public float codeSpawnCord = 0;
 
 	public bool HaveToBeDisplay(int cordWithOffset){
 		if (spawnCord == cordWithOffset){

@@ -4,59 +4,39 @@ public class SpawnBoss : MonoBehaviour
 {
     public GameObject boss;
     public GameObject currentStructure;
-    public Vector3 bossPos;
-    bool haveToBeSpawn = true;
-    bool fisrtLoop = true;
-    MapDisplay script;
-    Transform sceneStructureForlder;
-
-    void Start(){
-        Transform manager = GameObject.Find("Manager").transform;
-        GameObject mapDisplay = manager.Find("MapDisplay").gameObject;
-        script = mapDisplay.GetComponent<MapDisplay>();
-
-        // find structure folder
-        Transform worldOrigin = GameObject.Find("WorldOrigin").transform;
-        Transform layers = worldOrigin.Find("Layers");
-        sceneStructureForlder = layers.Find("SrcutureFolder");
-    }
-
-    private Tstructures GetMapDisplayCurrentStructure(){
-        // get the right structure
-        foreach (Tstructures structure in script.biome.lstStructures){
-            if (sceneStructureForlder.Find(structure.name) != null){
-                return structure;
-            }
-        }
-
-        return null;
-    }
+    public Vector3 bossPos; // boss pos in the structure it's a local position
+    public GetteurForStructure getteur; // use to find the elements we need in game scene (structures are created in an other scene)
+    
+    private bool haveToBeSpawn = true;
+    private bool fisrtLoop = true;
+    private MapDisplay script = null;
+    private Transform sceneStructureForlder;
+    private Transform worldOrigin;
+    private Tstructures mapDisplayCurrentStructure;
     // Update is called once per frame
     void Update()
     {
         bool bossDead = false;
+        if (fisrtLoop){ // we don't compute those things in start because getteur is getting those informations in his start
+            script = getteur.GetMapDisplay();
+            sceneStructureForlder = getteur.GetStructureFolder();
+            mapDisplayCurrentStructure = getteur.GetMapDisplayCurrentStructure();
+            worldOrigin = getteur.GetWorldOrigin();
+        }
 
-        // We don't need to compute all this stuff evry frame
-        Tstructures mapDisplayCurrentStructure = GetMapDisplayCurrentStructure();
-
+        // if the boss is spawned we try to see if he is dead
         if(mapDisplayCurrentStructure.bossSpawned){
-            GameObject bossInScene = GameObject.Find($"{boss.name}{mapDisplayCurrentStructure.name}");
-            if(bossInScene == null){
-                    bossDead = true;
+            GameObject bossInScene = GameObject.Find($"{boss.name}_{mapDisplayCurrentStructure.prefab.name}_{mapDisplayCurrentStructure.name}");
+            if(bossInScene == null || bossInScene.transform.position.y < -20){
+                    mapDisplayCurrentStructure.structureIsCompleted = true;
                 }
-        }
-
-        if (!mapDisplayCurrentStructure.bossSpawned){
-            bossPos.x += currentStructure.transform.position.x;
-            bossPos.y += currentStructure.transform.position.y;
-            GameObject newBoss = Instantiate(boss, bossPos, Quaternion.identity);
+        }else { // spawn the boss at the right coordonate that is his local + coordonate of the structure in the world
+            GameObject newBoss = Instantiate(boss, new Vector3(bossPos.x + mapDisplayCurrentStructure.codeSpawnCord, bossPos.y + currentStructure.transform.position.y, bossPos.z ), Quaternion.identity);
             mapDisplayCurrentStructure.bossSpawned = true;
-            newBoss.name = boss.name + mapDisplayCurrentStructure.name;
-            Debug.Log($"boss : {boss.name}, {mapDisplayCurrentStructure.name}");
-        }
-
-        if(bossDead && mapDisplayCurrentStructure.bossSpawned && ! fisrtLoop){
-            mapDisplayCurrentStructure.structureIsCompleted = true;
+            SpriteRenderer sr = newBoss.GetComponent<SpriteRenderer>();
+            sr.sortingOrder = 50;
+            // to identify the boss of this structure
+            newBoss.name = boss.name + "_" + mapDisplayCurrentStructure.prefab.name + "_" + mapDisplayCurrentStructure.name;
         }
         fisrtLoop = false;
         
