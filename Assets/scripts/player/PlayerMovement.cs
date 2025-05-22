@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         if(move) playerDirection.ChangeDirection(direction);
         
         handleVFX.HandleVFX(jump); // Call the HandleVFX method from PlayerVFX script
-        handleSFX.handleSFX(jump, dash); // Call the handleSFX method from PlayerSFX script
+        handleSFX.handleSFX(jump, dash,isGrounded); // Call the handleSFX method from PlayerSFX script
 
         jump = false;
         dash = false; 
