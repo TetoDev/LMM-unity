@@ -19,11 +19,11 @@ public class MapGeneratorEditor : Editor {
 			mapDisplay.Start ();
 			mapDisplay.GenerateMap ();
 		}
-
+		/*
 		if (GUILayout.Button ("Save")) {
 			mapDisplay.saveAndLoad.Save (mapDisplay.biome);
 		}
-		
+		*/
 		foreach (string biomeName in mapDisplay.saveAndLoad.LstBiome()){
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField(biomeName);
@@ -31,7 +31,7 @@ public class MapGeneratorEditor : Editor {
 			if (GUILayout.Button ("Load")) {
 				mapDisplay.biome = mapDisplay.saveAndLoad.Load(biomeName);
 				Debug.Log("File loaded");
-			} else if (GUILayout.Button ("Delete")){
+			} /* else if (GUILayout.Button ("Delete")){
 				bool confirm = EditorUtility.DisplayDialog(
                 "Confirmation", 
                 "Do you really want to delete this biome ???", 
@@ -42,8 +42,8 @@ public class MapGeneratorEditor : Editor {
 				{
 					mapDisplay.saveAndLoad.Delete(biomeName);
 					Debug.Log("Biome deleted");
-				}
-			}
+				} 
+			}*/
 			EditorGUILayout.EndHorizontal();
 		}
 	}

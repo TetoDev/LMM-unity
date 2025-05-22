@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     private bool direction;
     private bool move;
     private bool jump;
+    private bool lastJump;
     private bool attack;
     private bool ascending;
     private bool dead;
@@ -54,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
         HandleInput();
         PlayerUpdate();
-
+        
         ascending = rb.linearVelocity.y > 0.1f;
 
         HandleAnimation();
@@ -62,8 +63,12 @@ public class PlayerMovement : MonoBehaviour
         if(move) playerDirection.ChangeDirection(direction);
         
         handleVFX.HandleVFX(jump); // Call the HandleVFX method from PlayerVFX script
-        handleSFX.handleSFX(jump, dash,isGrounded); // Call the handleSFX method from PlayerSFX script
+        handleSFX.handleSFX(jump, dash, isGrounded, lastJump); // Call the handleSFX method from PlayerSFX script
 
+        if (lastJump && jump)
+        {
+            lastJump = false; // Reset jump state
+        }
         jump = false;
         dash = false; 
     }
@@ -144,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         jump = Input.GetKey(KeyCode.Space) && isGrounded;
+        lastJump = jump; // Update last jump state
         attack = Input.GetMouseButton(0); // Click to attack
     }
 

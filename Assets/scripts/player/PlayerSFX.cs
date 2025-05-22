@@ -9,9 +9,9 @@ public class PlayerSFX : MonoBehaviour
     public AudioClip dashSound; // Sound effect for dashing
     public AudioClip hitSound; // Sound effect for getting hit
 
-    public void handleSFX(bool jump, bool dash, bool isGrounded)
+    public void handleSFX(bool jump, bool dash, bool isGrounded, bool lastJump)
     {
-        if (jump && isGrounded) // If the player is jumping
+        if (jump && lastJump && isGrounded) // If the player is jumping
         {
             PlayJumpSound(); // Play the jump sound effect
         }
