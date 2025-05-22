@@ -3,8 +3,9 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using System.Globalization;
+using UnityEditor;
 using System.Threading.Tasks;
-
+using UnityEditor;
 public class SaveAndLoad : MonoBehaviour
 {
     string filePathTerrainData => Application.persistentDataPath + "terrain.csv";
@@ -73,19 +74,23 @@ public class SaveAndLoad : MonoBehaviour
         return biomeLines;
     }
 
-    /*
+<<<<<<< Updated upstream
+    private List<string> BiomeToStr(TBiome biome){
+=======
+    
     private List<string> BiomeToStr(TBiome biome)
     {
+>>>>>>> Stashed changes
         string FindTilePath(string rootFolder, string tileName)
         {
             // Cherche tous les fichiers dans rootFolder et sous-dossiers
             var files = Directory.GetFiles(rootFolder, "*", SearchOption.AllDirectories);
-
+            
             foreach (var file in files)
             {
                 // Prend le nom de fichier sans chemin ni extension
                 string fileNameWithoutExt = Path.GetFileNameWithoutExtension(file);
-
+                
                 if (fileNameWithoutExt == tileName)
                 {
                     return file; // chemin complet du fichier trouvé
@@ -94,20 +99,18 @@ public class SaveAndLoad : MonoBehaviour
             return null; // pas trouvé
         }
 
-        List<string> lines = new List<string> { };
+        List<string> lines = new List<string>{};
         lines.Add($"#{biome.name}#");
         lines.Add($"{biome.mapMaxHeight},{biome.noiseScale},{biome.probaDecor},{biome.probaGrass},{biome.probaTree},{AssetDatabase.GetAssetPath(biome.spawnEnemisManager).Replace("Assets/Resources/", "").Split(".")[0]}");
 
-        lines.Add("@terrain");
-        for (int i = 0; i < biome.map.Count; i++)
-        {
+        lines.Add("@terrain"); 
+        for (int i = 0 ; i < biome.map.Count ; i++){
             lstDisplayElements element = biome.map[i];
             Grid grid = element.tilemap.layoutGrid;
             string gridName = grid.gameObject.name;
             lines.Add($"{element.name},(,{gridName}");
 
-            for (int j = 0; j < element.lstOfThisElementType.Count; j++)
-            {
+            for (int j = 0 ; j < element.lstOfThisElementType.Count ; j++){
                 displayElement subElement = element.lstOfThisElementType[j];
                 string path = AssetDatabase.GetAssetPath(subElement.tile).Replace("Assets/Resources/", "").Replace(".asset", "");
                 CheckPathOk(path);
@@ -115,9 +118,9 @@ public class SaveAndLoad : MonoBehaviour
             }
             lines.Add(")");
         }
-        lines.Add("@endterrain");
+        lines.Add("@endterrain"); 
 
-        lines.Add("@parallax");
+        lines.Add("@parallax"); 
         foreach (TParallaxBackground bg in biome.lstParallaxBackground)
         {
             string texturePath = AssetDatabase.GetAssetPath(bg.texture).Replace("Assets/Resources/", "").Split('.')[0];
@@ -125,18 +128,17 @@ public class SaveAndLoad : MonoBehaviour
         }
         lines.Add("@endparallax");
 
-        lines.Add("@structure");
-        foreach (Tstructures structure in biome.lstStructures)
-        {
+        lines.Add("@structure"); 
+        foreach (Tstructures structure in biome.lstStructures){
             string path = AssetDatabase.GetAssetPath(structure.prefab).Replace("Assets/Resources/", "").Split('.')[0];
             lines.Add($"{structure.name},{structure.spawnCord},{path},{structure.length}");
         }
-        lines.Add("@endstructure");
+        lines.Add("@endstructure"); 
 
 
         return lines;
     }
-    */
+
     public List<string> LstBiome(){
         List<string> lines = GetFileContent(filePathTerrainData);
         List<string> lstBiome = new List<string>{};
@@ -148,16 +150,17 @@ public class SaveAndLoad : MonoBehaviour
         return lstBiome;
     }
 
-    /*
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
     public void Save(TBiome biomeToSave)
     {
-        List<string> fileContent = new List<string> { };
-        foreach (string biomeName in LstBiome())
-        {
-            if (biomeName != biomeToSave.name)
-            {
+        List<string> fileContent = new List<string>{};
+        foreach (string biomeName in LstBiome()){
+            if (biomeName != biomeToSave.name){
                 fileContent.AddRange(BiomeToStr(Load(biomeName)));
-            }
+                }
         }
         fileContent.AddRange(BiomeToStr(biomeToSave));
 
@@ -176,7 +179,10 @@ public class SaveAndLoad : MonoBehaviour
         }
         File.WriteAllLines(filePathTerrainData, fileContent);
     }
-    */
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
     public Dictionary<string, int> BuildDicoIdTerrain(string biomeName){
 
 		Dictionary<string, int> IdTerrainTiles = new Dictionary<string, int>{};

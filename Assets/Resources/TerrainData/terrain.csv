@@ -1,45 +1,3 @@
-#snow#
-12,15,14,50,42,SpawnEnemisManager/mud
-@terrain
-terrain,(,Layer_1
-tile,tiles/TerrainTileMap/Tilesheet - WOODS_12,0,1000
-topTile,tiles/TerrainTileMap/Tilesheet - WOODS_1,0,1000
-bottomDoubleEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_12,0,1000
-doubleEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_59,0,1000
-topDoubleEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_51,0,1000
-bottomLeftEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_12,0,0
-leftEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_3,0,1000
-topLeftEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_0,0,1000
-bottomRightEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_12,0,1000
-rightEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_13,0,1000
-topRightEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_2,0,1000
-scaleTile,,0,1000
-)
-tree,(,Layer_3
-,,0,1000
-)
-grass,(,Layer_2
-,tiles/Nature/Tree16_1,0,1000
-,tiles/cave/plant-1,0,1000
-)
-decors,(,Layer_2
-,tiles/Others/Torch1,0,1000
-,tiles/Others/Torch17,0,1000
-,tiles/Others/WoodBox1,0,1000
-)
-@endterrain
-@parallax
-,backgrounds/Free 2D Cartoon Parallax Background/4_Snow/Layer_0,-0.0001
-,backgrounds/Free 2D Cartoon Parallax Background/!_Moutain/Layer_1,0.0001
-,backgrounds/Free 2D Cartoon Parallax Background/4_Snow/Layer_2,-0.0002
-,backgrounds/Free 2D Cartoon Parallax Background/4_Snow/Layer_3,0.0003
-@endparallax
-@structure
-1,100,StructurePrefab/arene 1,30
-2,200,StructurePrefab/arene 2,30
-4,400,StructurePrefab/arene cave 3,30
-5,500,StructurePrefab/nextBiome,5
-@endstructure
 #plaine#
 10,20,14,73,20,SpawnEnemisManager/plaine
 @terrain
@@ -217,6 +175,48 @@ decors,(,Layer_2
 ,backgrounds/Free 2D Cartoon Parallax Background/!_Moutain/Layer_1,0.0001
 ,backgrounds/Free 2D Cartoon Parallax Background/3_Graveyard/Layer_2,-0.0002
 ,backgrounds/Free 2D Cartoon Parallax Background/3_Graveyard/Layer_3,0.0003
+@endparallax
+@structure
+1,100,StructurePrefab/arene 1,30
+2,200,StructurePrefab/arene 2,30
+4,400,StructurePrefab/arene cave 3,30
+5,500,StructurePrefab/nextBiome,30
+@endstructure
+#snow#
+12,15,14,50,42,SpawnEnemisManager/mud
+@terrain
+terrain,(,Layer_1
+tile,tiles/TerrainTileMap/Tilesheet - WOODS_12,0,1000
+topTile,tiles/TerrainTileMap/Tilesheet - WOODS_1,0,1000
+bottomDoubleEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_12,0,1000
+doubleEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_59,0,1000
+topDoubleEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_51,0,1000
+bottomLeftEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_12,0,0
+leftEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_3,0,1000
+topLeftEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_0,0,1000
+bottomRightEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_12,0,1000
+rightEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_13,0,1000
+topRightEdgeTile,tiles/TerrainTileMap/Tilesheet - WOODS_2,0,1000
+scaleTile,,0,1000
+)
+tree,(,Layer_3
+,,0,1000
+)
+grass,(,Layer_2
+,tiles/Nature/Tree16_1,0,1000
+,tiles/cave/plant-1,0,1000
+)
+decors,(,Layer_2
+,tiles/Others/Torch1,0,1000
+,tiles/Others/Torch17,0,1000
+,tiles/Others/WoodBox1,0,1000
+)
+@endterrain
+@parallax
+,backgrounds/Free 2D Cartoon Parallax Background/4_Snow/Layer_0,-0.0001
+,backgrounds/Free 2D Cartoon Parallax Background/!_Moutain/Layer_1,0.0001
+,backgrounds/Free 2D Cartoon Parallax Background/4_Snow/Layer_2,-0.0002
+,backgrounds/Free 2D Cartoon Parallax Background/4_Snow/Layer_3,0.0003
 @endparallax
 @structure
 1,100,StructurePrefab/arene 1,30

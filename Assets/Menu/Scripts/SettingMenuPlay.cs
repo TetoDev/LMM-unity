@@ -12,6 +12,9 @@ public class SettingMenuPlay : MonoBehaviour
         if (seedInput.text != ""){
             Debug.Log(int.Parse(seedInput.text));
             saveAndLoad.SaveSeed(int.Parse(seedInput.text));
+        }else{
+            int seed = Random.Range(-100000, 100000);
+            saveAndLoad.SaveSeed(seed);
         }
         SceneManager.LoadScene("SceneGame");
         Debug.Log("Play");
