@@ -96,7 +96,7 @@ public class SaveAndLoad : MonoBehaviour
 
         List<string> lines = new List<string> { };
         lines.Add($"#{biome.name}#");
-        lines.Add($"{biome.mapMaxHeight},{biome.noiseScale},{biome.probaDecor},{biome.probaGrass},{biome.probaTree}");
+        lines.Add($"{biome.mapMaxHeight},{biome.noiseScale},{biome.probaDecor},{biome.probaGrass},{biome.probaTree},{AssetDatabase.GetAssetPath(biome.spawnEnemisManager).Replace("Assets/Resources/", "").Split(".")[0]}");
 
         lines.Add("@terrain");
         for (int i = 0; i < biome.map.Count; i++)
@@ -212,7 +212,7 @@ public class SaveAndLoad : MonoBehaviour
     private void LoadTerrain(string biomeName, TBiome biome){
         biome.map = new List<lstDisplayElements>{};
         biome.name = biomeName;
-
+        Debug.Log(filePathTerrainData);
         List<string> strBiome = GetBiomeContent(biome.name);
         bool inDisplayElement = false;
         lstDisplayElements tempLstDisplayElements = new lstDisplayElements();
@@ -226,6 +226,7 @@ public class SaveAndLoad : MonoBehaviour
         biome.probaDecor = int.Parse(lineOfWord[2]);
         biome.probaGrass = int.Parse(lineOfWord[3]);
         biome.probaTree = int.Parse(lineOfWord[4]);
+        biome.spawnEnemisManager = Resources.Load<GameObject>(lineOfWord[5]);
 
         for (int i = 1 ; i <  strBiome.Count ; i++){
             line = strBiome[i];

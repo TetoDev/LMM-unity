@@ -38,6 +38,7 @@ public class GameParallax : MonoBehaviour
     {
         bool mouveParallaxBg = false;
         layer = int.Parse(gameObject.name);
+        // if there is a biome change we need to change the texture
         if (layer <= mapDisplay.biome.lstParallaxBackground.Count){
             if(currentText != mapDisplay.biome.lstParallaxBackground[layer - 1].texture){
                 LoadParallaxBackground();
@@ -57,7 +58,7 @@ public class GameParallax : MonoBehaviour
         }
         
         if (mouveParallaxBg && target != null){
-            offset += Input.GetAxis("Horizontal") * speed;
+            offset += Input.GetAxis("Horizontal") * speed; // return a value [0, 1] to have a smoth mouvement
             GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
             previousPlayerPos = target.transform.localPosition.x;
         }

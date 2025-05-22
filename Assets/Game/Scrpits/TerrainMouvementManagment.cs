@@ -8,20 +8,23 @@ public class TerrainMouvementManagment : MonoBehaviour
     public GameObject worldOrigin;
     public GameObject target;
 	public GameObject layers;
-	public WorldUnitConvertion convertionSysteme;
+	public WorldUnitConvertion convertionSysteme; // Reference to the script WorldUnitConvertion who have convertion methode betwen tilemap pixel and world
 
-    float previousPlayerPos = 0;
-	float playerPosCounter = 0;
-	float screenDistance = 0;
+    private float previousPlayerPos = 0;
+	private float playerPosCounter = 0;
+	private float screenDistance = 0;
 
-	int idTerrain;
+	private int idTerrain;
 
-    int previousScreenWidth = 0;
-	int previousScreenHeight = 0;
+    private int previousScreenWidth = 0;
+	private int previousScreenHeight = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+		// we set the right width depending of the user screen 
         mapDisplay.mapWidth = convertionSysteme.NbTilesToFillScreen(convertionSysteme.GetSizeTileInWorldDimentions());
+		
+		// we add an over flow distance how will display terrain out of the screen in order to spawn the enemis and the structure
 		convertionSysteme.ComputeOverFlowScreenDistance();
 		layers.transform.localPosition = new Vector3(layers.transform.localPosition.x - convertionSysteme.TileToWorld(convertionSysteme.overFlowScreenDistanceInTile / 2), layers.transform.localPosition.y, layers.transform.localPosition.z);
 		
@@ -55,12 +58,12 @@ public class TerrainMouvementManagment : MonoBehaviour
 			}
 		}
 
-		
+		// to compute the player mouvement 
 		if (target != null){
 			float playerPos = target.transform.localPosition.x;
 			if (previousPlayerPos != playerPos){
-			playerPosCounter += playerPos - previousPlayerPos;
-			previousPlayerPos = playerPos;
+				playerPosCounter += playerPos - previousPlayerPos;
+				previousPlayerPos = playerPos;
 			} if (Mathf.Abs(playerPosCounter) >= 1){
 				int temp = Mathf.RoundToInt(playerPosCounter);
 				mapDisplay.offsetX += temp;

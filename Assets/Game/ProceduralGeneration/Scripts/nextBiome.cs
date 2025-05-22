@@ -5,6 +5,7 @@ public class nextBiome : MonoBehaviour
     public GameObject currentStructure;
     Transform player;
     MapDisplay script;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +20,7 @@ public class nextBiome : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // consider the biome as completed if the player pos > spawn cord of the structure
         if (player.position.x >= currentStructure.transform.position.x){
             script.biome.isCompleted = true;
         }
