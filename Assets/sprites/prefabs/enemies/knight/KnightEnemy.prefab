@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 8496862817784279054}
   - component: {fileID: 4856184486217401185}
   - component: {fileID: 168246807178947088}
+  - component: {fileID: -2029451911541044923}
   m_Layer: 8
   m_Name: KnightEnemy
   m_TagString: Untagged
@@ -293,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 15
+  inverted: 0
   findPlayer: {fileID: 1477896800275407977}
   enemyHealth: {fileID: 8496862817784279054}
 --- !u!114 &5701462216190100438
@@ -367,6 +369,7 @@ MonoBehaviour:
   maxHealth: 100
   stunTime: 0.5
   destroyTime: 2
+  maxHitsUntilUnstun: 100
 --- !u!114 &4856184486217401185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,3 +397,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3115f8d7db5c7224e911eb9753772a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2029451911541044923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4937786427740948376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27cc8c6cf8f32c47a1b804a9ada689c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 05a3defd4bd5f17489cd77b9ea82030f, type: 3}
+  deathSound: {fileID: 8300000, guid: 96a090670803c9b47945b676a1749acd, type: 3}
+  hitSound: {fileID: 8300000, guid: a9e150aab4f67a748b4b74dd3aaf82c5, type: 3}

@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 944081785371914756}
   - component: {fileID: 43912801877032076}
   - component: {fileID: 3590659142908723995}
+  - component: {fileID: -7030565153933958617}
   m_Layer: 0
   m_Name: ShieldSkeleton
   m_TagString: Untagged
@@ -289,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 30
+  inverted: 0
   findPlayer: {fileID: 944081785371914756}
   enemyHealth: {fileID: 43912801877032076}
 --- !u!114 &2318243606432618140
@@ -346,6 +348,7 @@ MonoBehaviour:
   maxHealth: 130
   stunTime: 1.5
   destroyTime: 2
+  maxHitsUntilUnstun: 100
 --- !u!114 &3590659142908723995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,3 +366,19 @@ MonoBehaviour:
   minDistance: 1
   speed: 2
   enemyHealth: {fileID: 43912801877032076}
+--- !u!114 &-7030565153933958617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6638229686566246036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27cc8c6cf8f32c47a1b804a9ada689c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: c3a53b0e908bf8c4f910d53bff6d4f05, type: 3}
+  deathSound: {fileID: 8300000, guid: 65ed97fb2835be543bf4dfa1465aad60, type: 3}
+  hitSound: {fileID: 8300000, guid: b0b0cf0eb1e05974594ae61d60265d13, type: 3}
