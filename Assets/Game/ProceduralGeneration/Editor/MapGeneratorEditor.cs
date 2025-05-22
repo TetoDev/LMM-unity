@@ -19,7 +19,7 @@ public class MapGeneratorEditor : Editor {
 			mapDisplay.Start ();
 			mapDisplay.GenerateMap ();
 		}
-
+		/*
 		if (GUILayout.Button ("Save")) { // button save
 			mapDisplay.saveAndLoad.Save (mapDisplay.biome);
 		}
@@ -46,5 +46,6 @@ public class MapGeneratorEditor : Editor {
 			}
 			EditorGUILayout.EndHorizontal();
 		}
+		*/
 	}
 }

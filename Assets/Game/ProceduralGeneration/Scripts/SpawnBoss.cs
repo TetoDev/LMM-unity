@@ -34,6 +34,7 @@ public class SpawnBoss : MonoBehaviour
             GameObject newBoss = Instantiate(boss, new Vector3(bossPos.x + mapDisplayCurrentStructure.codeSpawnCord, bossPos.y + currentStructure.transform.position.y, bossPos.z ), Quaternion.identity);
             mapDisplayCurrentStructure.bossSpawned = true;
             SpriteRenderer sr = newBoss.GetComponent<SpriteRenderer>();
+            Debug.Log( $"spawn {mapDisplayCurrentStructure.codeSpawnCord}");
             sr.sortingOrder = 50;
             // to identify the boss of this structure
             newBoss.name = boss.name + "_" + mapDisplayCurrentStructure.prefab.name + "_" + mapDisplayCurrentStructure.name;

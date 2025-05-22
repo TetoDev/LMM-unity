@@ -12,7 +12,8 @@ public class Esteban : MonoBehaviour
     [SerializeField] private float speed = 2f;
     [SerializeField] private float idealDistance = 7f; // Ideal distance to maintain from the player
     [SerializeField] private float attackDistance = 5f; // Distance to attack the player
-
+    private SoundFX soundFX; // Reference to the SoundFX script
+    public AudioClip PortalSound; // Sound effect for jumping
     private Rigidbody2D rb;
     private Animator anim;
     private Collider2D col;
@@ -113,8 +114,11 @@ public class Esteban : MonoBehaviour
                 spellAttack(); // Cast a spell
             }
         }
-}
-
+    }
+    public void PlayPortalSound()
+    {
+        SoundFX.instance.PlaySound(PortalSound, transform, 0.5f); // Play the attack sound effect
+    }
     private void spellAttack() {
         anim.SetTrigger("cast");
         isCasting = true; // Set attacking state to true

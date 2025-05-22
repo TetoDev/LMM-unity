@@ -215,6 +215,7 @@ public class MapDisplay : MonoBehaviour {
 					structure.codeSpawnCord = convertionSysteme.TileToWorld(position.x ) + world.x - 3 * convertionSysteme.TileToWorld(structure.length) / 2;
 					GameObject temp = Instantiate(structure.prefab, new Vector3(structure.codeSpawnCord, structureFlatZoneHeigth - 0.5f + layers.transform.localPosition.y + world.y, 0), Quaternion.identity, StructureFolder.transform);
 					temp.name = structure.prefab.name;
+					Debug.Log( $"ma&p display {structure.codeSpawnCord}");
 				} if (structure.IsSpawning(position.x)){ // avoid decors & grass
 					structureIsSpawning = true;
 				}
