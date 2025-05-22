@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3064019147394631910}
   - component: {fileID: 7419696469819144777}
   - component: {fileID: 5647771886605250377}
+  - component: {fileID: -5233375402152668583}
   m_Layer: 8
   m_Name: Goblin
   m_TagString: Untagged
@@ -303,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 30
+  inverted: 0
   findPlayer: {fileID: 3064019147394631910}
   enemyHealth: {fileID: 7419696469819144777}
 --- !u!114 &3064019147394631910
@@ -339,6 +341,7 @@ MonoBehaviour:
   maxHealth: 60
   stunTime: 0.5
   destroyTime: 2
+  maxHitsUntilUnstun: 100
 --- !u!114 &5647771886605250377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,3 +359,19 @@ MonoBehaviour:
   minDistance: 1
   speed: 6.5
   enemyHealth: {fileID: 7419696469819144777}
+--- !u!114 &-5233375402152668583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6284736276906126628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27cc8c6cf8f32c47a1b804a9ada689c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 92d51487d47ec354cb8c834152b6b603, type: 3}
+  deathSound: {fileID: 8300000, guid: 4215fb433cf4d2745be43876644f69a8, type: 3}
+  hitSound: {fileID: 0}

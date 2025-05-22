@@ -1,21 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class PlayerSFX : MonoBehaviour
+public class EnemySFX : MonoBehaviour
 {
     private SoundFX soundFX; // Reference to the SoundFX script
     public AudioClip jumpSound; // Sound effect for jumping
     public AudioClip attackSound; // Sound effect for attacking
-    public AudioClip dashSound; // Sound effect for dashing
+    public AudioClip deathSound; // Sound effect for dashing
     public AudioClip hitSound; // Sound effect for getting hit
-
-    public void handleSFX( bool dash)
-    {
-        if (dash) // If the player is dashing
-        {
-            PlayDashSound(); // Play the dash sound effect
-        }
-    }
 
     public void PlayJumpSound()
     {
@@ -27,9 +19,9 @@ public class PlayerSFX : MonoBehaviour
         SoundFX.instance.PlaySound(attackSound, transform, 0.5f); // Play the attack sound effect
     }
 
-    public void PlayDashSound()
+    public void PlayDeathSound()
     {
-        SoundFX.instance.PlaySound(dashSound, transform, 0.5f); // Play the dash sound effect
+        SoundFX.instance.PlaySound(deathSound, transform, 0.5f); // Play the dash sound effect
     }
 
     public void PlayHitSound()
